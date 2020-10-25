@@ -1,0 +1,5 @@
+<div *ngFor="let el of selectedPage.elements; let i=index;">
+    <app-backend-page-component-editor [elements]="selectedPage.elements" [index]="i">
+    </app-backend-page-component-editor>
+</div>
+<app-add-element (selected)="addElement($event)"></app-add-element>

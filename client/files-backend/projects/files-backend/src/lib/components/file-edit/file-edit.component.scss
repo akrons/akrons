@@ -1,0 +1,13 @@
+$space-small: 8px;
+
+.editForm {
+    display: grid;
+    height: 100%;
+    gap: $space-small;
+}
+
+.cache-policy {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-small;
+}

@@ -1,0 +1,8 @@
+<div class="input" *ngIf="XFormField.visible" [formGroup]="XFormGroup">
+  <mat-checkbox
+    [formControlName]="XFormField.id"
+    [indeterminate]="XFormField.indeterminate"
+    [labelPosition]="XFormField.align">
+    {{XFormField.text}}
+  </mat-checkbox>
+</div>

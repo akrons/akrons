@@ -1,0 +1,34 @@
+{
+    "name": "@akrons/types",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "exports": {
+        "cms": "./dist/cms/index.js",
+        "file": "./dist/file/index.js",
+        "auth": "./dist/auth/index.js"
+    },
+    "types": "dist/index.d.ts",
+    "author": "rudxde",
+    "repository": "",
+    "bugs": "",
+    "scripts": {
+        "build": "tsc -p ."
+    },
+    "dependencies": {
+        "date-fns": "^2.16.1"
+    },
+    "devDependencies": {
+        "@types/node": "^13.7.0",
+        "@typescript-eslint/eslint-plugin": "^2.19.2",
+        "@typescript-eslint/eslint-plugin-tslint": "^2.19.2",
+        "@typescript-eslint/parser": "^2.19.2",
+        "eslint": "^6.8.0",
+        "ts-node": "^8.6.2",
+        "typescript": "^4.0.5"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "license": "Apache-2.0"
+}

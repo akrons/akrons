@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Datei löschen</h1>
+<div mat-dialog-content>
+    Sind sie sicher dass sie die Datei, "{{file.name}}", löschen wollen?
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="cancel()">Abbrechen</button>
+  <button mat-raised-button (click)="save()" color="warn" cdkFocusInitial>Löschen</button>
+</div>

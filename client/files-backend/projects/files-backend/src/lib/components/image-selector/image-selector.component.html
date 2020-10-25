@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Bild auswählen</h1>
+<div mat-dialog-content>
+    <button mat-raised-button color="primary" (click)="upload()">
+        <mat-icon>publish</mat-icon>
+        Bild hochladen
+    </button>
+    <div *ngIf="files$ | async as files" class="files">
+        <mat-card *ngFor="let file of files" (click)="select(file)" [title]="file.name" [class.selected]="selectedImage === file">
+            <span class="name">
+                {{file.name}}
+            </span>
+            <mat-card-content>
+                <img [src]="getImageUrl(file)" class="preview" />
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="cancel()">Abbrechen</button>
+    <button mat-raised-button (click)="save()" color="primary" [disabled]="!selectedImage">Auswählen</button>
+</div>

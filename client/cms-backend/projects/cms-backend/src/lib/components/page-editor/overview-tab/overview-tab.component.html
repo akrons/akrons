@@ -1,0 +1,30 @@
+<!-- <mat-form-field>
+    <input matInput placeholder="Titel:" [(ngModel)]="selectedPage.title">
+</mat-form-field>
+
+<mat-form-field>
+    <input matInput placeholder="Pfad:" [(ngModel)]="selectedPage.id">
+</mat-form-field> -->
+
+<!-- <mat-form-field>
+    <input matInput placeholder="Benötigte Berechtigung:" [(ngModel)]="selectedPage.requiredViewPermissions">
+    <mat-hint>Leer lassen, um allen zugriff zu gewähren.</mat-hint>
+</mat-form-field>
+
+<mat-form-field>
+    <input matInput placeholder="Kalender Schlagwörter:" [(ngModel)]="selectedPage.calendarKeywords">
+</mat-form-field>
+
+<mat-form-field>
+    <textarea matInput placeholder="Beschreibung:" [(ngModel)]="selectedPage.description"></textarea>
+</mat-form-field>
+
+<mat-form-field>
+    <textarea matInput placeholder="Header:" [(ngModel)]="selectedPage.header"></textarea>
+</mat-form-field> -->
+
+<akrons-forms-form
+    [formModel$]="formModel$"
+    [changes$]="changes$"
+    [functions]="functions"
+></akrons-forms-form>

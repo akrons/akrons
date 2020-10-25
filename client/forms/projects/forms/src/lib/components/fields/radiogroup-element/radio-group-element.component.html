@@ -1,0 +1,8 @@
+<div class="input" *ngIf="XFormField.visible" [formGroup]="XFormGroup">
+  <mat-radio-group [formControlName]="XFormField.id">
+    <mat-radio-button class="radio-button" *ngFor="let x of XFormField.options" [value]="x"
+      [labelPosition]="XFormField.align">
+      {{x}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>

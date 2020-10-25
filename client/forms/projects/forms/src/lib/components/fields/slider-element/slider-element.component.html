@@ -1,0 +1,10 @@
+<div class="input" *ngIf="XFormField.visible" [formGroup]="XFormGroup">
+    <mat-slider
+      [min]="XFormField.min"
+      [max]="XFormField.max"
+      [step]="XFormField.step"
+      [formControlName]="XFormField.id"
+      [thumbLabel]="true"
+      [value]="XFormField.default">
+    </mat-slider>
+</div>

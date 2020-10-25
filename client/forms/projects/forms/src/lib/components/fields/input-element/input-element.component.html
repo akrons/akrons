@@ -1,0 +1,5 @@
+<div class="input" [formGroup]="XFormGroup" *ngIf="XFormField.visible">
+  <mat-form-field>
+    <input matInput [placeholder]="XFormField.placeHolder" [formControlName]="XFormField.id">
+  </mat-form-field>
+</div>

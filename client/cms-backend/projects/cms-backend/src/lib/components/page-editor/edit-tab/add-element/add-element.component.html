@@ -1,0 +1,14 @@
+<div class="grid">
+    <button mat-mini-fab color="primary" (click)="open()" *ngIf="!selectionOpen" class="add">
+        <mat-icon>add</mat-icon>
+    </button>
+    <mat-card *ngIf="selectionOpen">
+        <button mat-icon-button color="accent" aria-label="close" class="close" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </button>
+        <button mat-raised-button *ngFor="let elementType of elementTypes" (click)="select(elementType.value)">
+            <mat-icon>{{elementType.icon}}</mat-icon>
+            {{elementType.name}}
+        </button>
+    </mat-card>
+</div>

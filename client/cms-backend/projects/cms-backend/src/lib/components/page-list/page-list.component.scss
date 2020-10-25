@@ -1,0 +1,151 @@
+$space-small: 8px;
+table {
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 16px;
+        tr.element-row {
+            cursor: pointer;
+        }
+        
+        tr.element-row:hover {
+            background: whitesmoke;
+        }
+        
+        tr.element-row:active {
+            background: #efefef;
+        }
+
+        tr.detail-row {
+            height: 0;
+            td {
+                padding: 0;
+            }
+            .details {
+                overflow: hidden;
+                display: flex;
+                
+                
+                @media only screen and (max-width: 550px) {
+                    div {
+                        grid-template-columns: auto !important;
+                    }
+                }
+
+                
+                div {
+                    padding: 16px;
+                    display: grid;
+                    gap: $space-small;
+                    grid-template-columns: 1fr auto;
+                    width: 100%;
+                    .actions {
+                        display: inline;
+                        justify-self: right;
+                        padding: 0;
+                        button {
+                            margin: $space-small;
+                        }
+                    }
+                    .data {
+                        display: grid;
+                        grid-template-columns: auto auto;
+                    }
+                }
+
+            }
+        }
+        
+        td.description {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+}
+
+
+
+.pageListEntry {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+.pageListEntry h3 {
+    font-weight: lighter;
+    font-size: 1.5em;
+}
+.pageListEntry .description {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.pageListEntry .actions button {
+    margin: $space-small;
+}
+
+.pageListEntry .actions {
+    display: inline;
+    justify-self: right;
+    padding: 0;
+}
+
+.pageListEntry+.pageListEntry {
+    border-top: 1px solid black;
+}
+
+textarea {
+    width: 80%;
+    min-height: 30px;
+}
+
+.pageToolbarItem {
+    background: 0;
+    border: 0;
+    color: #c38e3d;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.tabview {
+    /* margin: 10px; */
+    // background-color: mat-color($primary, 500);
+}
+
+.tabview>* {
+    font-size: 0;
+}
+
+.tabview>button {
+    padding: 20px;
+    margin: 0;
+    // background-color: mat-color($primary, 500);
+    color: #fff;
+    border: 0;
+    font-size: 14px;
+}
+
+.tabview-selected {
+    text-decoration: none;
+    background-color: #7593b4 !important;
+}
+
+.editContent {
+    margin-top: 20px;
+}
+
+.element-select {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.element-add {
+    border: 0;
+    background: 0;
+}
+
+app-confirm-component {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

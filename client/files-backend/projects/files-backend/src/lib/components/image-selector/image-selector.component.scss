@@ -1,0 +1,23 @@
+$space-small: 8px;
+
+.files {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-small;
+    padding: 16px 0;
+    mat-card {
+        display: grid;
+        .name {
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .preview {
+        width: 100%;
+    }
+    .selected {
+        box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.32);
+    }
+}

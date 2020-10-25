@@ -1,0 +1,17 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "akronsCmsDefaultBackend",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "akrons-cms-default-backend",
+      "kebab-case"
+    ]
+  }
+}

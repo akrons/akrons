@@ -1,0 +1,57 @@
+<h1>Seiten Verwalten</h1>
+<br />
+<div>
+    <button mat-raised-button color="primary" (click)="addPage()">
+        <mat-icon>add</mat-icon>
+        Neue Seite Erstellen
+    </button>
+    <table mat-table [dataSource]="dataSource$ | async" matSort multiTemplateDataRows class="mat-elevation-z8">
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Titel </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Route </th>
+            <td mat-cell *matCellDef="let element"> /{{element.id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Beschreibung </th>
+            <td mat-cell *matCellDef="let element" class="description"> {{element.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                <div class="details" [@detailExpand]="element == expandedSermon ? 'expanded' : 'collapsed'">
+                    <div>
+                        <div class="data">
+                            <span>Titel: </span>
+                            <span>{{element.title}}</span>
+                            <span>Route: </span>
+                            <span>/{{element.id}}</span>
+                            <span>Beschreibung: </span>
+                            <span>{{element.description}}</span>
+                        </div>
+                        <div class="actions">
+                            <button mat-mini-fab (click)="editPage(element)" alt="Bearbeiten" title="Bearbeiten">
+                                <mat-icon [inline]="true">create</mat-icon>
+                            </button>
+                            <a mat-mini-fab target="blank" [href]="element.id" alt="Ansicht" title="Ansicht">
+                                <mat-icon [inline]="true">visibility</mat-icon>
+                            </a>
+                            <button mat-mini-fab color="warn" (click)="deletePage(element)"
+                                alt="Seite Löschen" title="Seite Löschen">
+                                <mat-icon [inline]="true">delete_forever</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay;" class="element-row"
+            (click)="expandedSermon = expandedSermon === row ? null : row"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+    </table>
+
+</div>

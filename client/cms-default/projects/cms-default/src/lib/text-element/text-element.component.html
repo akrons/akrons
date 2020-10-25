@@ -1,0 +1,6 @@
+<div class="cms text">
+    <span [innerHTML]="htmlData" *ngIf="data.html"></span>
+    <div *ngIf="!data.html">
+        <markdown [data]="this.data.text"></markdown>
+    </div>
+</div>

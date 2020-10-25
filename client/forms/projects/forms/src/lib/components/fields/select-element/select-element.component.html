@@ -1,0 +1,12 @@
+<div class="input" *ngIf="XFormField.visible" [formGroup]="XFormGroup">
+  <mat-form-field>
+    <mat-label>{{XFormField.title}}</mat-label>
+    <select matNativeControl [formControlName]="XFormField.id">
+      <option *ngFor="let option of XFormField.options" [value]="option">{{option}}</option>
+    </select>
+    <!-- <mat-error *ngIf="field.controls.value.hasError('required')">
+          This field is required
+        </mat-error>
+        <mat-hint>You can pick up your favorite car here</mat-hint> -->
+  </mat-form-field>
+</div>

@@ -1,0 +1,21 @@
+<mat-card class="grid">
+    <div class="actions">
+        <button mat-mini-fab color="primary" (click)="toggleedit()" alt="Bearbeiten" title="Bearbeiten">
+            <mat-icon [inline]="true">create</mat-icon>
+        </button>
+        <button mat-mini-fab color="accent" *ngIf="index !== 0" (click)="moveup()" alt="nach oben verschieben"
+            title="nach oben verschieben">
+            <mat-icon [inline]="true">arrow_upward</mat-icon>
+        </button>
+        <button mat-mini-fab color="accent" *ngIf="index != elements.length -1" (click)="movedown()"
+            alt="nach unten verschieben" title="nach unten verschieben">
+            <mat-icon [inline]="true">arrow_downward</mat-icon>
+        </button>
+        <button mat-mini-fab color="warn" (click)="delete()" alt="Element entfernen" title="Element entfernen">
+            <mat-icon [inline]="true">delete_forever</mat-icon>
+        </button>
+    </div>
+    <akrons-forms-form *ngIf="edit" [formModel$]="editorFormModel$" [changes$]="editorChanges$"
+        [functions]="editorFunctions"></akrons-forms-form>
+    <cms-element *ngIf="!edit" [payload]="element"></cms-element>
+</mat-card>

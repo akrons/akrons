@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Datei bearbeiten</h1>
+<div mat-dialog-content>
+  <form *ngIf="editForm" class="editForm" [formGroup]="editForm">
+    <span>
+      Id: {{id}}
+    </span>
+
+    <mat-form-field>
+      <input matInput placeholder="Name/Pfad" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="benötigte Berechtigung:" formControlName="permission">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="mimeType:" formControlName="mimeType">
+    </mat-form-field>
+
+    <label id="cache-policy-label">Cache-Richtlinie:</label>
+    <mat-radio-group aria-labelledby="cache-policy-label" formControlName="cachePolicy" class="cache-policy">
+      <mat-radio-button class="example-radio-button" *ngFor="let option of fileCachePolicyOptions" color="primary"
+        [value]="option.value">
+        {{option.name}}
+      </mat-radio-button>
+    </mat-radio-group>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="cancel()">Abbrechen</button>
+  <button mat-raised-button (click)="save()" color="primary" cdkFocusInitial>Speichern</button>
+</div>

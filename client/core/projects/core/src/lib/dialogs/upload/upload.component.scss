@@ -1,0 +1,11 @@
+
+.hidden {
+    display: none;
+}
+
+.content {
+    .select-file {
+        display: grid;
+        gap: 8px;
+    }
+}

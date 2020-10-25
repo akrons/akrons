@@ -1,0 +1,6 @@
+div.fixed {
+    display: block;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,15 @@
+FROM node:12
+
+WORKDIR /usr/src/app
+COPY ./package.json ./
+# COPY ./package-lock.json ./
+RUN npm install
+COPY ./lerna.json ./
+COPY ./server ./server
+COPY ./common ./common
+RUN ls
+RUN npm run bootstrap -- --scope=@akrons/api --include-dependencies
+RUN npm run build -- --scope=@akrons/api --include-dependencies
+
+WORKDIR /usr/src/app/server/api
+CMD [ "npm", "start" ]

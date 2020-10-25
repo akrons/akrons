@@ -1,0 +1,5 @@
+<div class="textarea" [formGroup]="XFormGroup" *ngIf="XFormField.visible">
+  <mat-form-field>
+    <textarea matInput [placeholder]="XFormField.placeHolder" [formControlName]="XFormField.id"></textarea>
+  </mat-form-field>
+</div>

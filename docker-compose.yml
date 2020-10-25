@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+    client:
+        build:
+            context: .
+            dockerfile: ./client/test/DOCKERFILE
+        hostname: client-akrons
+        depends_on:
+            - api
+        ports:
+            - 4200:80
+    api:
+        build:
+            context: .
+            dockerfile: ./server/api/DOCKERFILE
+        hostname: api-akrons
+        ports:
+            - 8080:80
+        environment:
+            - SESAMED_CONFIG=/usr/src/app/config.json5
+        volumes:
+            - ./config.json5:/usr/src/app/config.json5
+            - api-keys:/usr/src/app/keys
+            - akrons-files:/usr/src/app/files
+        depends_on:
+            - mongo
+            - redis
+        networks:
+            - akrons-page-network
+    mongo:
+        image: mongo:4.0
+        volumes:
+            - db-akrons:/data/db
+        ports:
+            - 27017:27017
+        networks:
+            - akrons-page-network
+    redis:
+        image: redis:latest
+        networks:
+            - akrons-page-network
+
+
+networks:
+    akrons-page-network:
+
+volumes:
+    akrons-files:
+    db-akrons:
+    api-keys:

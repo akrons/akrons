@@ -1,0 +1,6 @@
+<div class="cms image">
+    <img *ngIf="!data.fixed" class="image" [src]="data.url" [alt]="data.description" [title]="data.description"
+    [attr.style]="getStyleString(false)">
+    
+    <div *ngIf="data.fixed" class="fixed" [attr.style]="getStyleString(true)" [title]="data.description"></div>
+</div>

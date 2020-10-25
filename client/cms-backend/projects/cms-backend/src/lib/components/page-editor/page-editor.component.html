@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>{{selectedPage.title}} - Bearbeiten</h1>
+
+<mat-tab-group mat-dialog-content>
+    <mat-tab label="Inhalt">
+        <div class="tab">
+            <app-edit-tab [selectedPage]="selectedPage"></app-edit-tab>
+        </div>
+    </mat-tab>
+    <mat-tab label="Eigenschaften">
+        <div class="tab">
+            <app-overview-tab [selectedPage]="selectedPage"></app-overview-tab>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="save()">
+        <mat-icon>
+            save
+        </mat-icon>
+        Speichern
+    </button>
+    <button mat-raised-button color="warn" (click)="discardChanges()">
+        <mat-icon>
+            cancel
+        </mat-icon>
+        Änderungen verwerfen
+    </button>
+</div>

@@ -1,0 +1,7 @@
+FROM tb_utils
+
+WORKDIR /usr/src/service-utils
+COPY ./service-utils/package.json ./
+RUN npm install
+COPY ./service-utils/ .
+RUN npm run build

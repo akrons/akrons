@@ -1,0 +1,6 @@
+<div class="input" *ngIf="XFormField.visible" [formGroup]="XFormGroup">
+  <button mat-raised-button [disabled]="XFormField.disabled" [color]="XFormField.color" (click)="handler()">
+    <mat-icon *ngIf="XFormField.icon">{{XFormField.icon}}</mat-icon>
+    {{XFormField.text}}
+  </button>
+</div>

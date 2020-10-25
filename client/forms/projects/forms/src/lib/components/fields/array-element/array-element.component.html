@@ -1,0 +1,9 @@
+<div class="input" *ngIf="XFormField.visible" [formGroup]="XFormGroup">
+  <div [formArrayName]="XFormField.id" *ngFor="let elem of XFormField.default;let i=index">
+    <mat-form-field>
+      <input matInput [formControlName]="i" [placeholder]="'#' + i">
+    </mat-form-field>
+    <button mat-raised-button color="secondary" (click)="removeElement(i)">-</button>
+  </div>
+  <button mat-raised-button color="secondary" (click)="addElement()">+</button>
+</div>

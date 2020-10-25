@@ -1,0 +1,30 @@
+{
+  "name": "@akrons/configuration",
+  "version": "1.0.0",
+  "description": "",
+  "license": "GPL-3.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "lint": "eslint -c .eslintrc.js --ext .ts src"
+  },
+  "dependencies": {
+    "deepmerge": "4.2.2",
+    "json5": "2.1.3",
+    "yargs": "16.0.3"
+  },
+  "devDependencies": {
+    "@types/json5": "0.0.30",
+    "@types/node": "12.12.64",
+    "@types/yargs": "15.0.8",
+    "eslint": "7.13.0",
+    "typescript": "4.0.3"
+  },
+  "files": [
+    "package*.json",
+    "dist/**"
+  ],
+  "engines": {
+    "node": ">= 12.18.3"
+  }
+}

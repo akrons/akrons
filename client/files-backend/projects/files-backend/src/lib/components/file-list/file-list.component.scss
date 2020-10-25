@@ -1,0 +1,34 @@
+$space-large: 32px;
+$space-medium: 16px;
+$space-small: 8px;
+
+
+.tree-entry {
+    cursor: pointer;
+    .tree-entry {
+        margin-left: $space-large;
+    }
+    .tree-entry-row {
+        padding: $space-medium;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        h3 {
+            margin-bottom: 0;
+            align-self: center;
+        }
+        .edit-file {
+            button {
+                margin: 0 $space-small;
+            }
+        }
+    }
+}
+
+.upload {
+    margin: $space-large 0;
+}
+
+mat-card {
+    padding: $space-small;
+    margin: $space-small;
+}

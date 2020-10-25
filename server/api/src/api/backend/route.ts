@@ -1,0 +1,31 @@
+import { Router, Request, Response } from 'express';
+import { router as pageRoute } from './page/route';
+import { router as sermonRoute } from './sermon/route';
+import { router as userRoute } from './user/route';
+import { router as permissionsRoute } from './permissions/route';
+import { router as groupsRoute } from './groups/route';
+import { router as jsonImportRoute } from './json-import/route';
+import { router as fileRoute } from './file/route';
+import { router as youtubeRoute } from './youtube/route';
+import { router as indicesRoute } from './indices/route';
+import { router as viewsRoute } from './views/route';
+import { router as menuRoute } from './menu/route';
+import { router as preacherRoute } from './preacher/route';
+import { VerifyLoginMiddleware } from '../../lib/auth/user-token';
+import { keys } from '../../lib/auth/keys';
+import { Permissions } from '../../lib/collections/permissions';
+
+export const router = Router();
+
+router.use(VerifyLoginMiddleware(keys), Permissions.requireMiddleware('api.backend'));
+router.use('/page', pageRoute);
+router.use('/sermon', sermonRoute);
+router.use('/permissions', permissionsRoute);
+router.use('/groups', groupsRoute);
+router.use('/json-import', jsonImportRoute);
+router.use('/file', fileRoute);
+router.use('/youtube', youtubeRoute);
+router.use('/indices', indicesRoute);
+router.use('/views', viewsRoute);
+router.use('/menu', menuRoute);
+router.use('/preacher', preacherRoute);

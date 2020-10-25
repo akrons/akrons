@@ -1,0 +1,46 @@
+<button mat-raised-button color="primary" class="upload" (click)="upload()">
+    <mat-icon>publish</mat-icon>Hochladen
+</button>
+
+<div *ngIf="usage$ | async as usage">
+    <span [title]="usage.result | bytex: 'IEC'">
+        Verbrauchter Speicher: {{usage.result | bytex: 'SI'}}
+    </span>
+    <span *ngIf="usage.limit" [title]="usage.limit | bytex: 'IEC'">
+        / {{usage.limit | bytex: 'SI'}}
+    </span>
+</div>
+
+<ng-template #fileTree let-node>
+    <div class="tree-entry">
+        <mat-card class="tree-entry-row" (click)="node.open = !node.open">
+            <h3>
+                <mat-icon [inline]="true" *ngIf="!node.file">
+                    {{node.open ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}
+                </mat-icon>
+                <mat-icon [inline]="true" [title]="node.file ? ('type: ' + node.file.mimeType) : 'Ordner'">
+                    {{node.icon}}
+                </mat-icon>
+                /{{node.name}}
+            </h3>
+            <span class="edit-file" *ngIf="node.file">
+                <button mat-mini-fab color="primary" (click)="editFile(node.file)" alt="Bearbeiten" title="Bearbeiten">
+                    <mat-icon [inline]="true">edit</mat-icon>
+                </button>
+                <button mat-mini-fab color="warn" (click)="deleteFile(node.file)" alt="Bearbeiten" title="Bearbeiten">
+                    <mat-icon [inline]="true">delete</mat-icon>
+                </button>
+            </span>
+        </mat-card>
+        <div *ngIf="node.children.length && node.open" class="node-children">
+            <ng-template ngFor [ngForOf]="node.children" [ngForTemplate]="fileTree">
+            </ng-template>
+        </div>
+    </div>
+
+</ng-template>
+
+<div *ngIf="data$ | async as data">
+    <ng-template [ngTemplateOutlet]="fileTree" [ngTemplateOutletContext]="data">
+    </ng-template>
+</div>

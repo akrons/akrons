@@ -1,0 +1,47 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "@akrons/menues": {
+      "projectType": "library",
+      "root": "projects/menues",
+      "sourceRoot": "projects/menues/src",
+      "prefix": "akrons-menues",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/menues/tsconfig.lib.json",
+            "project": "projects/menues/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/menues/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/menues/src/test.ts",
+            "tsConfig": "projects/menues/tsconfig.spec.json",
+            "karmaConfig": "projects/menues/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/menues/tsconfig.lib.json",
+              "projects/menues/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "menues"
+}

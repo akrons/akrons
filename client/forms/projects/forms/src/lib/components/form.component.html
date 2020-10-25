@@ -1,0 +1,14 @@
+<form *ngIf="myForm" [formGroup]="myForm">
+  <div *ngFor="let x of form.elements" class="form-element">
+    <dynamic-reactive-forms-input-element *ngIf="x.type === 'input'" [XFormGroup]="myForm" [XFormField]="x"></dynamic-reactive-forms-input-element>
+    <dynamic-reactive-forms-textarea-element *ngIf="x.type === 'textarea'" [XFormGroup]="myForm" [XFormField]="x"></dynamic-reactive-forms-textarea-element>
+    <dynamic-reactive-forms-checkbox-element *ngIf="x.type === 'check'" [XFormGroup]="myForm" [XFormField]="x"></dynamic-reactive-forms-checkbox-element>
+    <dynamic-reactive-forms-radio-group-element *ngIf="x.type === 'radio'" [XFormGroup]="myForm" [XFormField]="x">
+    </dynamic-reactive-forms-radio-group-element>
+    <dynamic-reactive-forms-slide-element *ngIf="x.type === 'slide'" [XFormGroup]="myForm" [XFormField]="x"></dynamic-reactive-forms-slide-element>
+    <dynamic-reactive-forms-slider-element *ngIf="x.type === 'slider'" [XFormGroup]="myForm" [XFormField]="x"></dynamic-reactive-forms-slider-element>
+    <dynamic-reactive-forms-select-element *ngIf="x.type === 'select'" [XFormGroup]="myForm" [XFormField]="x"></dynamic-reactive-forms-select-element>
+    <dynamic-reactive-forms-array-element *ngIf="x.type === 'array'" [XFormGroup]="myForm" [XFormField]="x"></dynamic-reactive-forms-array-element>
+    <dynamic-reactive-forms-button-element *ngIf="x.type === 'button'" [XFormGroup]="myForm" [XFormField]="x" (buttonClick)="callFunction($event)"></dynamic-reactive-forms-button-element>
+  </div>
+</form>
