@@ -4,6 +4,7 @@ import { takeUntil } from 'rxjs/operators';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { HttpService } from '../../services/http/http.service';
+import { joinPath } from '../../join-path';
 
 @Component({
   selector: 'app-upload',
@@ -59,7 +60,7 @@ export class UploadComponent {
   }
 
   uploadComplete(result: string): void {
-    this.dialogRef.close(result);
+    this.dialogRef.close(joinPath(this.data.fileEndpoint, result));
   }
 
   uploadToEndpoint$(endpoint: string): Observable<{ type: 'progress', progress: number } | { type: 'response', response: string }> {
@@ -137,5 +138,6 @@ export class UploadComponent {
 export interface IUploadDialogData {
   title: string;
   uploadEndpoint: string;
+  fileEndpoint: string;
   filenamePrefix?: string;
 }

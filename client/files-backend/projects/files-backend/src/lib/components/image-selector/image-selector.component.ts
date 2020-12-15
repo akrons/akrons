@@ -58,7 +58,8 @@ export class ImageSelectorComponent implements OnInit {
       data: <IUploadDialogData>{
         title: 'Bild hochladen',
         uploadEndpoint: this.backendEndpoint,
-        filenamePrefix: 'images/'
+        filenamePrefix: 'images/',
+        fileEndpoint: this.endpoint,
       }
     });
     dialogRef.afterClosed()
