@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PageListComponent } from './components/page-list/page-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { CmsModule } from '@akrons/cms';
+import { PageBackendService } from './services/page-backend.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ export class CmsBackendModule {
     return {
       ngModule: CmsBackendModule,
       providers: [
-        { provide: CMS_BACKEND_ENDPOINT, useValue: options.endpoint }
+        { provide: CMS_BACKEND_ENDPOINT, useValue: options.endpoint },
+        PageBackendService,
       ]
     };
   }

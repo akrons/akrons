@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import { BackendElementManagerService } from './backend-element-manager.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'any',
 })
 export class PageBackendService {
   private allPagesSubject$ = new Subject<cms.IPage[]>();
