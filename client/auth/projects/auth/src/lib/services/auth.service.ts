@@ -46,8 +46,8 @@ export class AuthService {
 
   async logout(): Promise<void> {
     this.stopTokenRefresh$.next();
-    this.token = undefined;
     await this.endpoint.post('logout');
+    this.token = undefined;
   }
 
   async changePassword(username: string, oldPassword: string, newPassword: string): Promise<void> {
@@ -77,7 +77,11 @@ export class AuthService {
 
   private set token(value: string) {
     this._token = value;
-    sessionStorage.setItem(TOKEN_SESSION_STORAGE_KEY, value);
+    if (!value) {
+      sessionStorage.removeItem(TOKEN_SESSION_STORAGE_KEY);
+    } else {
+      sessionStorage.setItem(TOKEN_SESSION_STORAGE_KEY, value);
+    }
   }
 
   private getTokenExpires(): Date {
