@@ -34,7 +34,7 @@ export class Pages extends DefaultCollection<cms.IPage>{
 
     insertMap(id: string, x: cms.IPage): cms.IPage {
         return {
-            id,
+            id: x.id || id,
             title: x.title,
             elements: x.elements,
             options: x.options
