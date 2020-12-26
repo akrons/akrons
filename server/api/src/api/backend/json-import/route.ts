@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { Permissions } from '../../../lib/collections/permissions';
+import { requirePermissionMiddleware } from '@akrons/auth-lib';
 import { JsonImport } from '../../../lib/json-import';
 
 export const router = Router();
-router.use(Permissions.requireMiddleware('api.backend.json-import'));
+router.use(requirePermissionMiddleware('api.backend.json-import'));
 
 router.post('/:collection/one', (req, res, next) => {
     JsonImport.getInstance().importOne(req.params.collection, req.body)

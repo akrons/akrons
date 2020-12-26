@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import { Menu } from './lib/collections/menu';
 import { getEnvironment } from './lib/env';
 import { router as apiRoute } from './api/route';
 
@@ -19,10 +18,4 @@ router.get('/robots.txt', (req: Request, res: Response, next: NextFunction) => {
     return res
         .type('text/plain')
         .send(`User-agent: *\n` + disallows.map(x => `Disallow: ${x}`).join('\n'));
-});
-
-router.get('/sitemap.xml', (req: Request, res: Response, next: NextFunction) => {
-    return Menu.getInstance().loadMenuAsSiteMapXml('main', req.permissions, req.headers.host)
-        .then(x => res.type('application/xml').send(x))
-        .catch(next);
 });

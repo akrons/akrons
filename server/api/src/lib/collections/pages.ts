@@ -1,6 +1,6 @@
 import { NotAuthorizedError } from '@akrons/service-utils';
 import { Db, Collection } from 'mongodb';
-import { Permissions } from './permissions';
+import { requirePermissionMiddleware } from '@akrons/auth-lib';
 import { Views } from './views';
 import { DefaultCollection } from './default-collection';
 import { cms } from '@akrons/types';

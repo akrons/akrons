@@ -16,7 +16,8 @@
         "build": "tsc -p ."
     },
     "dependencies": {
-        "date-fns": "^2.16.1"
+        "date-fns": "^2.16.1",
+        "js-base64": "^3.6.0"
     },
     "devDependencies": {
         "@types/node": "^13.7.0",

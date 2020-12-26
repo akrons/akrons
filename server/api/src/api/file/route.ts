@@ -1,12 +1,12 @@
 import { Router, Request, Response, NextFunction } from 'express';
-import { Permissions } from '../../lib/collections/permissions';
+import { requirePermissionMiddleware } from '@akrons/auth-lib';
 import { File } from '../../lib/collections/file';
 
 export const router = Router();
 
-router.use(Permissions.requireMiddleware('api.common.file'));
+router.use(requirePermissionMiddleware('api.common.file'));
 
-router.get('/*', Permissions.requireMiddleware('api.common.file.load'), (req: Request, res: Response, next: NextFunction) => {
+router.get('/*', requirePermissionMiddleware('api.common.file.load'), (req: Request, res: Response, next: NextFunction) => {
     File.getInstance().getFile(req.params[0], req.permissions || [])
         .then(result => {
             res.setHeader('Content-Type', result.file.mimeType);

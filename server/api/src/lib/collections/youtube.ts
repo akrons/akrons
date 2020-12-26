@@ -27,7 +27,7 @@ export class Youtube {
         const fileApi = File.getInstance();
         let fileDestination = join(fileApi.fileStorageDirectory, fileId);
         let youtubeThumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-        await new Promise((resolve, reject) => {
+        await new Promise<void>((resolve, reject) => {
             let file = fs.createWriteStream(fileDestination);
             https.get(youtubeThumbnailUrl, (response) => {
                 response.on('error', (err) => {

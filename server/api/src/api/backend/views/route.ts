@@ -1,10 +1,10 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { Views } from '../../../lib/collections/views';
-import { Permissions } from '../../../lib/collections/permissions';
+import { requirePermissionMiddleware } from '@akrons/auth-lib';
 
 export const router = Router();
 
-router.use(Permissions.requireMiddleware('api.backend.views'));
+router.use(requirePermissionMiddleware('api.backend.views'));
 
 
 router.get('', (req: Request, res: Response, next: NextFunction) => {
