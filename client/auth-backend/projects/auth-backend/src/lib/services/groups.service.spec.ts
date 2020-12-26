@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AuthBackendService } from './auth-backend.service';
+import { GroupsService } from './groups.service';
 
-describe('AuthBackendService', () => {
-  let service: AuthBackendService;
+describe('GroupsService', () => {
+  let service: GroupsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthBackendService);
+    service = TestBed.inject(GroupsService);
   });
 
   it('should be created', () => {

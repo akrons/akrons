@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>
+    Gruppe
+    <span *ngIf="selectedGroup.id">bearbeiten</span>
+    <span *ngIf="!selectedGroup.id">erstellen</span>
+</h1>
+
+<div mat-dialog-content class="content">
+    <div *ngIf="selectedGroup.id">
+        Id: {{selectedGroup.id}}
+    </div>
+    <mat-form-field>
+        <mat-label>Gruppenname:</mat-label>
+        <input [formControl]="groupName" matInput type="text" [disabled]="processing">
+        <mat-error *ngIf="groupName.invalid && (groupName.touched || showValidationErrors)">
+            Bitte geben sie einen Gruppennamen ein!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field *ngFor="let permission of permissions">
+        <mat-label>Berechtigung:</mat-label>
+        <input [formControl]="permission" matInput type="text" [disabled]="processing">
+        <button mat-icon-button matSuffix (click)="removePermission(permission)"
+            [attr.aria-label]="'Berechtigung entfernen'">
+            <mat-icon>remove</mat-icon>
+        </button>
+        <mat-error *ngIf="permission.invalid && (permission.touched || showValidationErrors)">
+            Bitte geben sie eine gültige Berechtigung ein.
+        </mat-error>
+    </mat-form-field>
+    <button mat-icon-button color="primary" aria-label="Weitere Berechtigung hinzufügen" (click)="addPermission()">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="save()">
+        <mat-icon>
+            save
+        </mat-icon>
+        Speichern
+    </button>
+    <button mat-raised-button color="warn" (click)="discardChanges()">
+        <mat-icon>
+            cancel
+        </mat-icon>
+        Änderungen verwerfen
+    </button>
+</div>

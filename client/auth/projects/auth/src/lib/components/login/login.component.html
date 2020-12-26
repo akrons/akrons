@@ -1,0 +1,27 @@
+<mat-card class="login">
+    <h1>
+        Login
+    </h1>
+    <mat-form-field>
+        <mat-label>Benutzername:</mat-label>
+        <input [formControl]="loginControl" matInput type="text" [disabled]="processing">
+        <mat-error *ngIf="loginControl.invalid && (loginControl.touched || showValidationErrors)">
+            Bitte geben sie ihren Benutzernahme ein!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password:</mat-label>
+        <input matInput [formControl]="passwordControl" [type]="hide ? 'password' : 'text'" [disabled]="processing">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="passwordControl.invalid && (passwordControl.touched || showValidationErrors)">
+            Bitte geben sie ihr Password ein!
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="processing" (click)="login()" type="submit">
+        Login
+        <mat-spinner *ngIf="processing" diameter="20"></mat-spinner>
+    </button>
+</mat-card>

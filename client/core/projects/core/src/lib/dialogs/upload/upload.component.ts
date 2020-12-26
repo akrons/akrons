@@ -85,23 +85,11 @@ export class UploadComponent {
       request.open('POST', endpoint);
 
       const headers = this.http.addHeaders().headers;
-      if (headers instanceof HttpHeaders) {
-        headers.keys().forEach(header => {
-          headers.getAll(header).forEach(value => {
-            request.setRequestHeader(header, value);
-          });
+      headers.keys().forEach(header => {
+        headers.getAll(header).forEach(value => {
+          request.setRequestHeader(header, value);
         });
-      } else {
-        for (const header in headers) {
-          if (Array.isArray(header[header])) {
-            for (const value of header[header]) {
-              request.setRequestHeader(header, value);
-            }
-          } else if (header[header]) {
-            request.setRequestHeader(header, header[header]);
-          }
-        }
-      }
+      });
 
       request.send(formData);
       request.onreadystatechange = function (): void {

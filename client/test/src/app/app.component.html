@@ -1,6 +1,10 @@
 <akrons></akrons>
-<a [routerLink]="'home'">page</a><br />
-<a [routerLink]="'edit'">edit</a><br />
-<a [routerLink]="'file'">file</a><br />
+<div class="links">
+    <a [routerLink]="'home'">page</a><br />
+    <a [routerLink]="'backend/users'">Benutzer</a><br />
+    <a [routerLink]="'backend/groups'">Gruppen</a><br />
+    <a [routerLink]="'backend/edit'">edit</a><br />
+    <a [routerLink]="'backend/file'">file</a><br />
+</div>
 
 <router-outlet></router-outlet>
