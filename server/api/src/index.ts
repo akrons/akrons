@@ -1,14 +1,12 @@
 require('dotenv').config();
 import express, { Request, Response, NextFunction } from 'express';
-import { IServiceError } from '@akrons/service-utils';
-import { GetTokensMiddleware } from './lib/auth/user-token';
-import { loadKeys } from './lib/auth/keys';
-import { Permissions } from './lib/collections/permissions';
+import { IServiceError, loadD4sKey } from '@akrons/service-utils';
+import { GetTokenMiddleware } from '@akrons/auth-lib';
 import { getEnvironment, loadEnvironment } from './lib/env';
 
 async function main() {
     await loadEnvironment();
-    await loadKeys();
+    // await loadKeys();
     const app = express();
     app.use(express.json({ limit: "100mb" }));
 
@@ -16,7 +14,7 @@ async function main() {
         app.use((req, res, next) => {
             res.setHeader('Access-Control-Allow-Origin', '*');
             res.setHeader('Access-Control-Allow-Credentials', 'true');
-            res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+            res.setHeader('Access-Control-Allow-Methods', '*');
             res.setHeader('Access-Control-Allow-Headers', '*');
             if (req.method === 'OPTIONS') {
                 res.sendStatus(204);
@@ -26,9 +24,20 @@ async function main() {
         });
     }
 
+    const authPublicKey = await loadD4sKey(
+        getEnvironment().PUBLIC_KEY_FILE_PATH,
+        getEnvironment().D4S,
+        false,
+        getEnvironment().AUTH_SERVICE_NAME,
+        getEnvironment().SERVICE_NAME,
+    )
+
     app.use(
-        Permissions.setDefaultPermissionsMiddleware(),
-        GetTokensMiddleware(),
+        GetTokenMiddleware(authPublicKey),
+        (req, res, next) => {
+            req.permissions = req.permissions ? [...req.permissions, ...getEnvironment().DEFAULT_PERMISSIONS] : req.permissions;
+            next();
+        }
     );
 
     app.use((await import('./routes')).router);

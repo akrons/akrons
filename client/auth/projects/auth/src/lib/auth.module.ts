@@ -1,12 +1,59 @@
-import { NgModule } from '@angular/core';
-import { AuthComponent } from './auth.component';
-
-
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from './components/login/login.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { AUTH_CHANGE_PASSWORD_REDIRECT_PROVIDER, AUTH_CHANGE_PASSWORD_ROUTE_PROVIDER, AUTH_ENDPOINT_PROVIDER, AUTH_LOGIN_REDIRECT_PROVIDER } from './injectors';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CoreModule } from '@akrons/core';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
-  declarations: [AuthComponent],
-  imports: [
+  declarations: [
+    LoginComponent,
+    ChangePasswordComponent
   ],
-  exports: [AuthComponent]
+  imports: [
+    CommonModule,
+    CoreModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCardModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
+  ],
+  exports: [
+    LoginComponent,
+    ChangePasswordComponent
+  ]
 })
-export class AuthModule { }
+export class AuthModule {
+  constructor(
+    authService: AuthService,
+  ) { 
+    authService.init();
+  }
+  static forRoot(
+    options: {
+      endpoint: string,
+      loginRedirect: string[],
+      changePasswordRedirect: string[],
+      changePasswordRoute: string[],
+    }
+  ): ModuleWithProviders<AuthModule> {
+    return {
+      ngModule: AuthModule,
+      providers: [
+        { provide: AUTH_ENDPOINT_PROVIDER, useValue: options.endpoint },
+        { provide: AUTH_LOGIN_REDIRECT_PROVIDER, useValue: options.loginRedirect },
+        { provide: AUTH_CHANGE_PASSWORD_ROUTE_PROVIDER, useValue: options.changePasswordRoute },
+        { provide: AUTH_CHANGE_PASSWORD_REDIRECT_PROVIDER, useValue: options.changePasswordRedirect },
+      ]
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { Db, Collection } from 'mongodb';
 import { mongoConnection } from '../mongo';
 import { NotFoundError, PayloadToLarge, NotAuthorizedError, BadRequestError, ConflictError } from '@akrons/service-utils';
-import { Permissions } from './permissions';
+import { hasPermission } from '@akrons/auth-lib';
 import * as Path from 'path';
 import { getEnvironment } from '../env';
 import { Views } from './views';
@@ -34,7 +34,7 @@ export class File {
             if (!file) {
                 throw new NotFoundError();
             }
-            if (permissions && !Permissions.getInstance().hasPermission(file.permission, permissions)) {
+            if (permissions && !hasPermission(file.permission, permissions)) {
                 throw new NotAuthorizedError();
             }
             await Views.getInstance().count('file', file.id);
@@ -110,7 +110,7 @@ export class File {
             if (!result) {
                 throw new NotFoundError();
             }
-            if (permissions && !Permissions.getInstance().hasPermission(result.permission, permissions)) {
+            if (permissions && !hasPermission(result.permission, permissions)) {
                 throw new NotAuthorizedError();
             }
             return result;

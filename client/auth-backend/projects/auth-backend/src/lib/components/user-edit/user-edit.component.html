@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>
+    Benutzer
+    <span *ngIf="selectedUser.id">bearbeiten</span>
+    <span *ngIf="!selectedUser.id">hinzufügen</span>
+</h1>
+
+<div mat-dialog-content>
+    <div class="content" *ngIf="!passwordFeedback">
+        <div *ngIf="selectedUser.id">
+            Id: {{selectedUser.id}}
+        </div>
+        <mat-form-field>
+            <mat-label>login:</mat-label>
+            <input [formControl]="loginName" matInput type="text" [disabled]="processing">
+            <mat-error *ngIf="loginName.invalid && (loginName.touched || showValidationErrors)">
+                Bitte geben sie einen Login-Namen ein!
+            </mat-error>
+        </mat-form-field>
+        <mat-checkbox labelPosition="before" [formControl]="passwordChangeRequired" *ngIf="selectedUser.id">
+            Benutzer muss Passwort bei nächster Anmeldung ändern:
+        </mat-checkbox>
+        <span *ngFor="let groupControl of groupControls">
+            <mat-checkbox [formControl]="groupControl.formControl">
+                {{groupControl.name}}
+            </mat-checkbox>
+        </span>
+    </div>
+    <akrons-auth-backend-user-password-feedback *ngIf="passwordFeedback" [id]="passwordFeedback.id"
+        [password]="passwordFeedback.password" [login]="loginName.value"></akrons-auth-backend-user-password-feedback>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="save()" *ngIf="!passwordFeedback">
+        <mat-icon>
+            save
+        </mat-icon>
+        Speichern
+    </button>
+    <button mat-raised-button color="primary" (click)="discardChanges()" *ngIf="passwordFeedback">
+        <mat-icon>
+            check
+        </mat-icon>
+        Fertig
+    </button>
+    <button mat-raised-button color="warn" (click)="discardChanges()">
+        <mat-icon>
+            cancel
+        </mat-icon>
+        Änderungen verwerfen
+    </button>
+</div>

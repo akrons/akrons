@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { joinPath } from '../../join-path';
 import { CORE_PRODUCTION_INJECTOR } from '../../injectors';
 
-type IHeaderMiddleware = (options: IHttpOptions) => IHttpOptions;
+export type IHeaderMiddleware = (options: IHttpOptions) => IHttpOptions;
 
 /**
  * An proxy for the HttpClient, which adds the authorization headers.
@@ -59,6 +59,7 @@ export class HttpService implements IHttpService {
       put: <T>(route?: string, body?: any, options?: IHttpOptions): Observable<T> => this.put(joinPath(endpoint, route), body, options),
       patch: <T>(route?: string, body?: any, options?: IHttpOptions): Observable<T> => this.patch(joinPath(endpoint, route), body, options),
       delete: <T>(route?: string, options?: IHttpOptions): Observable<T> => this.delete(joinPath(endpoint, route), options),
+      endpoint: (subEndpoint) => this.endpoint(joinPath(endpoint, subEndpoint)),
     };
   }
 
@@ -83,11 +84,10 @@ export interface IHttpService {
   put<T>(route?: string, body?: any, options?: IHttpOptions): Observable<T>;
   patch<T>(route?: string, body?: any, options?: IHttpOptions): Observable<T>;
   delete<T>(route?: string, options?: IHttpOptions): Observable<T>;
+  endpoint(endpoint: string): IHttpService;
 }
 
-interface IHttpOptions {
-  headers?: HttpHeaders | {
-    [header: string]: string | string[];
-  };
+export interface IHttpOptions {
+  headers?: HttpHeaders;
   responseType?: 'json';
 }

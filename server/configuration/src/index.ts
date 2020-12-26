@@ -18,20 +18,20 @@ export async function loadConfiguration<T>(
     const yargsInstance = getNewYargsInstance();
     const configOptions = yargs
         .env("AKRONS")
+        .help(false)
         .option("config", {
             type: "string",
-            demandOption: true,
         })
         .default("config", defaultConfig)
         .wrap(CONSOLE_HELP_WIDTH)
         .parse(args ? args : process.argv);
-    const parsedConfig = await loadConfigFile(configOptions.config!, [], defaultConfig);
+    let parsedConfig = {};
+    if (configOptions.config) {
+        parsedConfig = await loadConfigFile(configOptions.config, [], defaultConfig);
+    }
     return configBuilder(
         yargsInstance
-            .env("SESAMED")
-            .parserConfiguration({
-                "camel-case-expansion": false
-            })
+            .env("AKRONS")
             .config("config", (configPath) => {
                 return parsedConfig;
             })
@@ -41,8 +41,10 @@ export async function loadConfiguration<T>(
                 type: "string",
                 description: "The entry config file."
             })
-            .demandOption("config")
             .wrap(CONSOLE_HELP_WIDTH)
-    ).parse(args ? args : process.argv);
+    )
+        .command('$0', 'default', () => { })
+        .parse(args ? args : process.argv);
 }
 export type ArgsBuilder<T> = yargs.Argv<T>;
+export * from './nested-utils';

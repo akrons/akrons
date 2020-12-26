@@ -11,8 +11,12 @@ import { CmsModule } from '@akrons/cms';
 import { CmsDefaultModule } from '@akrons/cms-default';
 import { CmsBackendModule } from '@akrons/cms-backend';
 import { CmsDefaultBackendModule } from '@akrons/cms-default-backend';
-import { BackendComponent } from './backend/backend.component';
 import { FilesBackendModule } from '@akrons/files-backend';
+import { AuthModule } from '@akrons/auth';
+import { AuthBackendModule } from '@akrons/auth-backend';
+
+
+import { BackendComponent } from './backend/backend.component';
 import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
@@ -39,6 +43,15 @@ import { MatDialogModule } from '@angular/material/dialog';
     FilesBackendModule.forRoot({
       endpoint: joinPath(environment.host, '/api/file'),
       backendEndpoint: joinPath(environment.host, '/api/backend/file')
+    }),
+    AuthModule.forRoot({
+      endpoint: 'http://localhost:8081',
+      loginRedirect: ['/home'],
+      changePasswordRoute: ['/change-password'],
+      changePasswordRedirect: ['/login']
+    }),
+    AuthBackendModule.forRoot({
+      endpoint: 'http://localhost:8081'
     })
   ],
   providers: [],

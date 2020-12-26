@@ -1,10 +1,10 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { Youtube } from '../../../lib/collections/youtube';
-import { Permissions } from '../../../lib/collections/permissions';
+import { requirePermissionMiddleware } from '@akrons/auth-lib';
 
 export const router = Router();
 
-router.use(Permissions.requireMiddleware('api.backend.page.youtube'));
+router.use(requirePermissionMiddleware('api.backend.page.youtube'));
 
 router.post('/:id', (req: Request, res: Response, next: NextFunction) => {
     Youtube.getInstance().addVideo(req.params.id)
