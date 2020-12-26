@@ -17,8 +17,6 @@ import { UserResetPasswordComponent } from './components/user-reset-password/use
 import { UserPasswordFeedbackComponent } from './components/user-password-feedback/user-password-feedback.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     UserListComponent,

@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'akrons-auth-backend-user-password-feedback',
   templateUrl: './user-password-feedback.component.html',
-  styleUrls: ['./user-password-feedback.component.css']
+  styleUrls: ['./user-password-feedback.component.scss']
 })
 export class UserPasswordFeedbackComponent implements OnInit {
 

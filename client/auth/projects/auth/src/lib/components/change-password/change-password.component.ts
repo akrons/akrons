@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AUTH_CHANGE_PASSWORD_REDIRECT_PROVIDER } from '../../injectors';
 import { AuthService } from '../../services/auth.service';
 
@@ -21,9 +21,9 @@ export class ChangePasswordComponent implements OnInit {
   hideNewPassword: boolean = true;
   newPasswordControl = new FormControl('', [
     Validators.minLength(8),
-    Validators.pattern(/[A-Z]/gm),
-    Validators.pattern(/[a-z]/gm),
-    Validators.pattern(/[!"§%&\/()=?`´^*+~'#.:,;<>|²³\{\[\]\}\\ß@€µ]/gm),
+    Validators.pattern('^.*[A-Z].*$'),
+    Validators.pattern('^.*[a-z].*$'),
+    Validators.pattern('^.*[!"§%&\\\\\\/()=\\?`´^\\*\\+~\'#\\.:,;<>|²³\\{\\[\\]\\}ß@€µ].*$'),
   ]);
 
   hideNewPasswordRetry: boolean = true;
@@ -31,7 +31,7 @@ export class ChangePasswordComponent implements OnInit {
     Validators.required,
     (control) => {
       if (control.value !== this.newPasswordControl.value) {
-        return new Error('password-missmatch');
+        return { passwordMatch: { valid: false } };
       }
       return null;
     }
@@ -44,9 +44,14 @@ export class ChangePasswordComponent implements OnInit {
     private router: Router,
     @Inject(AUTH_CHANGE_PASSWORD_REDIRECT_PROVIDER)
     private changePasswordRedirectRoute: string[],
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+    const login = this.activatedRoute.snapshot.queryParams.login;
+    if (login) {
+      this.loginControl.setValue(login);
+    }
   }
 
   async changePassword(): Promise<void> {
@@ -66,7 +71,7 @@ export class ChangePasswordComponent implements OnInit {
         this.oldPasswordControl.value,
         this.newPasswordControl.value
       )
-      await this.router.navigate(this.changePasswordRedirectRoute);
+      await this.router.navigate(this.changePasswordRedirectRoute, { queryParams: { login: this.loginControl.value } });
     } finally {
       this.processing = false;
     }

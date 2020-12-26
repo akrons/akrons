@@ -144,4 +144,11 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.expandedUserGroups.next([]);
     this.expandedUserGroups.next(await this.getGroupNames(row.groups));
   }
+
+  commaJoin(content: string[] | undefined): string {
+    if (!content) {
+      return '';
+    }
+    return content.join('');
+  }
 }

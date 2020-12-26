@@ -1,4 +1,4 @@
-<mat-card class="login">
+<mat-card class="login" (keyup.enter)="login()">
     <h1>
         Login
     </h1>
@@ -20,8 +20,11 @@
             Bitte geben sie ihr Password ein!
         </mat-error>
     </mat-form-field>
+    <span *ngIf="loginInvalid" class="login-invalid">
+        Benutzername oder Passwort falsch!
+    </span>
     <button mat-raised-button color="primary" [disabled]="processing" (click)="login()" type="submit">
         Login
-        <mat-spinner *ngIf="processing" diameter="20"></mat-spinner>
+        <mat-spinner *ngIf="processing" diameter="20" class="spinner"></mat-spinner>
     </button>
 </mat-card>

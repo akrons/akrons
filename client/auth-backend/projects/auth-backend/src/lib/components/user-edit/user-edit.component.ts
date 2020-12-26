@@ -10,7 +10,7 @@ import { UsersService } from '../../services/users.service';
 @Component({
   selector: 'akrons-auth-backend-user-edit',
   templateUrl: './user-edit.component.html',
-  styleUrls: ['./user-edit.component.css']
+  styleUrls: ['./user-edit.component.scss']
 })
 export class UserEditComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<void>();

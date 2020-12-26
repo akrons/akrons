@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AUTH_CHANGE_PASSWORD_ROUTE_PROVIDER, AUTH_LOGIN_REDIRECT_PROVIDER } from '../../injectors';
 import { AuthService } from '../../services/auth.service';
 
@@ -13,9 +13,12 @@ export class LoginComponent implements OnInit {
 
   processing: boolean;
   hide: boolean = true;
+
   loginControl = new FormControl('', [Validators.required]);
   passwordControl = new FormControl('', [Validators.required]);
   showValidationErrors: boolean = false;
+
+  loginInvalid: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -23,11 +26,15 @@ export class LoginComponent implements OnInit {
     @Inject(AUTH_LOGIN_REDIRECT_PROVIDER)
     private loginRedirectRoute: string[],
     @Inject(AUTH_CHANGE_PASSWORD_ROUTE_PROVIDER)
-    private changePasswordRoute: string[]
+    private changePasswordRoute: string[],
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-
+    const login = this.activatedRoute.snapshot.queryParams.login;
+    if (login) {
+      this.loginControl.setValue(login);
+    }
   }
 
   async login(): Promise<void> {
@@ -43,8 +50,12 @@ export class LoginComponent implements OnInit {
       )
     } catch (err) {
       this.processing = false;
-      if (err.error?.error === 'passwordChangeRequired') {
-        await this.router.navigate(this.changePasswordRoute);
+      if (err.status === 401) {
+        this.loginInvalid = true;
+        return;
+      }
+      if (err.status === 403) {
+        await this.router.navigate(this.changePasswordRoute, { queryParams: { login: this.loginControl.value } });
         return;
       }
       throw err;

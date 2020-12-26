@@ -17,8 +17,9 @@
             </mat-error>
         </mat-form-field>
         <mat-checkbox labelPosition="before" [formControl]="passwordChangeRequired" *ngIf="selectedUser.id">
-            Benutzer muss Passwort bei nächster Anmeldung ändern:
+            Passwort muss bei nächster Anmeldung geändert werden:
         </mat-checkbox>
+        <span>Gruppen:</span>
         <span *ngFor="let groupControl of groupControls">
             <mat-checkbox [formControl]="groupControl.formControl">
                 {{groupControl.name}}
@@ -36,16 +37,16 @@
         </mat-icon>
         Speichern
     </button>
+    <button mat-raised-button color="warn" (click)="discardChanges()"  *ngIf="!passwordFeedback">
+        <mat-icon>
+            cancel
+        </mat-icon>
+        Änderungen verwerfen
+    </button>
     <button mat-raised-button color="primary" (click)="discardChanges()" *ngIf="passwordFeedback">
         <mat-icon>
             check
         </mat-icon>
         Fertig
-    </button>
-    <button mat-raised-button color="warn" (click)="discardChanges()">
-        <mat-icon>
-            cancel
-        </mat-icon>
-        Änderungen verwerfen
     </button>
 </div>

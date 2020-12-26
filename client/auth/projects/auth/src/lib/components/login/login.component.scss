@@ -1,3 +1,14 @@
 .login {
     display: grid;
 }
+
+.spinner {
+    display: inline;
+    margin: 0px 20px;
+}
+
+.login-invalid {
+    margin: 0px 8px;
+    padding: 4px;
+    font-weight: bold;
+}

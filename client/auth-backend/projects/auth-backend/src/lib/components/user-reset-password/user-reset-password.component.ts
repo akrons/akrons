@@ -13,6 +13,7 @@ export class UserResetPasswordComponent implements OnInit {
   processing = false;
   hideNewPassword: boolean = true;
   newPasswordControl = new FormControl('', [
+    Validators.required,
     Validators.minLength(8),
     Validators.pattern('^.*[A-Z].*$'),
     Validators.pattern('^.*[a-z].*$'),
@@ -24,7 +25,7 @@ export class UserResetPasswordComponent implements OnInit {
     Validators.required,
     (control) => {
       if (control.value !== this.newPasswordControl.value) {
-        return new Error('password-missmatch');
+        return { passwordMatch: { valid: false } };
       }
       return null;
     }

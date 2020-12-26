@@ -36,9 +36,7 @@
                             <span>{{element.login}}</span>
                             <span>Gruppen: </span>
                             <span>
-                                <div *ngFor="let groupName of (expandedUserGroups | async)">
-                                    {{groupName}}
-                                </div>
+                                {{commaJoin(expandedUserGroups | async)}}
                             </span>
                             <span>Passwort muss geändert werden: </span>
                             <span>
@@ -63,8 +61,7 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-        <tr mat-row *matRowDef="let row; columns: columnsToDisplay;" class="element-row"
-            (click)="expandRow(row)"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay;" class="element-row" (click)="expandRow(row)"></tr>
         <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
     </table>
 </div>
