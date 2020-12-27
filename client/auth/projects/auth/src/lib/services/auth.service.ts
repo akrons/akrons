@@ -13,7 +13,6 @@ const TOKEN_SESSION_STORAGE_KEY = 'AKRONS_SESSION_TOKEN';
 })
 export class AuthService {
 
-  // TODO: store token in session storage
   private _token?: string;
   private stopTokenRefresh$: Subject<void> = new Subject();
 
@@ -25,6 +24,18 @@ export class AuthService {
 
   init() {
     this.httpService.addHeaderMiddleWare(x => this.httpMiddleware(x))
+  }
+
+  isLoggedIn(): boolean {
+    return Boolean(this.token);
+  }
+
+  hasPermission(permission: string): boolean {
+    if (!this.token) {
+      return false;
+    }
+    const { token } = auth.decodeToken(this.token);
+    return auth.hasPermission(permission, token.permissions);
   }
 
   userName(): string | undefined {

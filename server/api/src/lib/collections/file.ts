@@ -1,7 +1,7 @@
 import { Db, Collection } from 'mongodb';
 import { mongoConnection } from '../mongo';
 import { NotFoundError, PayloadToLarge, NotAuthorizedError, BadRequestError, ConflictError } from '@akrons/service-utils';
-import { hasPermission } from '@akrons/auth-lib';
+import { hasPermission } from '@akrons/types/dist/auth';
 import * as Path from 'path';
 import { getEnvironment } from '../env';
 import { Views } from './views';

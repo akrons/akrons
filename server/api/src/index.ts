@@ -35,7 +35,7 @@ async function main() {
     app.use(
         GetTokenMiddleware(authPublicKey),
         (req, res, next) => {
-            req.permissions = req.permissions ? [...req.permissions, ...getEnvironment().DEFAULT_PERMISSIONS] : req.permissions;
+            req.permissions = req.permissions ? [...req.permissions, ...getEnvironment().DEFAULT_PERMISSIONS] : getEnvironment().DEFAULT_PERMISSIONS;
             next();
         }
     );
