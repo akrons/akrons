@@ -22,6 +22,10 @@ export class Environment {
                                         type: 'number',
                                         default: 10
                                     })
+                                    .option('corsOrigins', {
+                                        type: 'array',
+                                        demandOption: true,
+                                    })
                                 ,
                                 'sessionTokenValidity', false, { min: 5 }
                             ),
@@ -51,4 +55,5 @@ export interface IEnvironment extends
     sessionTokenRenewability: ITimeSpan;
     adminDefaultPassword: string;
     defaultPasswordLength: number;
+    corsOrigins: (string | number)[];
 }

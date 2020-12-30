@@ -4,6 +4,7 @@ import { Environment } from './lib/env';
 import { Keys } from './lib/keys';
 import { GetTokenMiddleware } from '@akrons/auth-lib';
 import { ensureInitialAuth } from './lib/initial-auth';
+import cors from 'cors';
 
 async function main() {
     await Environment.loadEnvironment();
@@ -13,17 +14,14 @@ async function main() {
     app.use(express.json({ limit: "100mb" }));
 
     if (Environment.get().corsAll) {
-        app.use((req, res, next) => {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Allow-Credentials', 'true');
-            res.setHeader('Access-Control-Allow-Methods', '*');
-            res.setHeader('Access-Control-Allow-Headers', '*');
-            if (req.method === 'OPTIONS') {
-                res.sendStatus(204);
-            } else {
-                next();
-            }
-        });
+        app.use(cors());
+    } else {
+        app.use(cors({
+            methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+            origin: Environment.get().corsOrigins.map(String),
+            credentials: true,
+            preflightContinue: false,
+        }));
     }
 
     app.use(

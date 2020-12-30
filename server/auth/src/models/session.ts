@@ -25,10 +25,10 @@ export class Session {
         if (user.passwordChangeRequired) {
             throw new PasswordChangeRequiredError();
         }
-        const permissions: string[] = [];
+        const permissions: string[] = [`user.${user.id}`];
         for (let groupId of user.groups) {
             const group = await Groups.getInstance().get(groupId);
-            permissions.push(...group.permissions);
+            permissions.push(...group.permissions, `group.${group.id}`);
         }
         const token = await Token.getInstance().create(user.id, user.login, permissions);
         return await Token.getInstance().sign(token);

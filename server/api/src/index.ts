@@ -1,5 +1,6 @@
 require('dotenv').config();
 import express, { Request, Response, NextFunction } from 'express';
+import cors from 'cors';
 import { IServiceError, loadD4sKey } from '@akrons/service-utils';
 import { GetTokenMiddleware } from '@akrons/auth-lib';
 import { getEnvironment, loadEnvironment } from './lib/env';
@@ -11,25 +12,23 @@ async function main() {
     app.use(express.json({ limit: "100mb" }));
 
     if (getEnvironment().CORS_ALL === 'true') {
-        app.use((req, res, next) => {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Allow-Credentials', 'true');
-            res.setHeader('Access-Control-Allow-Methods', '*');
-            res.setHeader('Access-Control-Allow-Headers', '*');
-            if (req.method === 'OPTIONS') {
-                res.sendStatus(204);
-            } else {
-                next();
-            }
-        });
+        app.use(cors());
+    } else {
+        app.use(cors({
+            methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+            origin: getEnvironment().corsOrigins.map(String),
+            credentials: true,
+            preflightContinue: false,
+            
+        }));
     }
 
     const authPublicKey = await loadD4sKey(
         getEnvironment().PUBLIC_KEY_FILE_PATH,
         getEnvironment().D4S,
         false,
-        getEnvironment().AUTH_SERVICE_NAME,
         getEnvironment().SERVICE_NAME,
+        getEnvironment().AUTH_SERVICE_NAME,
     )
 
     app.use(
