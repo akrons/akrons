@@ -30,7 +30,7 @@ export class PageEditorComponent implements OnInit {
   }
 
   discardChanges(): void {
-    this.pageBackendService.refreshGetAllSubscriber();
+    this.pageBackendService.getAll$();
     this.dialogRef.close();
   }
 

@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 import { BackendElementManagerService } from './backend-element-manager.service';
 
 @Injectable({
-  providedIn: 'any',
+  providedIn: 'root',
 })
 export class PageBackendService {
   private allPagesSubject$ = new Subject<cms.IPage[]>();
@@ -18,16 +18,6 @@ export class PageBackendService {
     private backendElementManagerService: BackendElementManagerService,
   ) { }
 
-  public refreshGetAllSubscriber(): void {
-    this.getEndpoint()
-      .get<cms.IPage[]>()
-      .subscribe({
-        next: x => {
-          this.allPagesSubject$.next(x)
-        },
-      });
-  }
-
   async savePage(id: string, page: cms.IPage): Promise<void | any> {
     page.elements.forEach(element => {
       const elementDefinition = this.backendElementManagerService.getElement(element.type);
@@ -36,16 +26,16 @@ export class PageBackendService {
       }
     });
     await this.getEndpoint().post(id, page).toPromise();
-    this.refreshGetAllSubscriber();
+    this.getAll$();
   }
 
   async deletePage(page: cms.IPage): Promise<void | any> {
     await this.getEndpoint().delete(page.id).toPromise();
-    this.refreshGetAllSubscriber();
+    this.getAll$();
   }
 
   getAll$(): Observable<cms.IPage[]> {
-    this.refreshGetAllSubscriber();
+    this.getEndpoint().get<cms.IPage[]>().toPromise().then(x => this.allPagesSubject$.next(x));
     return this.allPagesSubject$;
   }
 
