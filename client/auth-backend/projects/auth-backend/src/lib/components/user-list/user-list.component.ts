@@ -149,6 +149,6 @@ export class UserListComponent implements OnInit, OnDestroy {
     if (!content) {
       return '';
     }
-    return content.join('');
+    return content.join(', ');
   }
 }
