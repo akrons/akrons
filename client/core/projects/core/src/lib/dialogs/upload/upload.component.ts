@@ -43,17 +43,16 @@ export class UploadComponent {
         next: value => {
           if (value.type === 'progress') {
             this.progress$.next(value.progress);
-            this.changeDetectorRef.markForCheck();
+            this.changeDetectorRef.detectChanges();
           } else {
             this.isUploading = false;
             this.uploadComplete(value.response);
-            this.changeDetectorRef.markForCheck();
           }
         },
         error: (err) => {
           this.isUploading = false;
           this.error = true;
-          this.changeDetectorRef.markForCheck();
+          this.changeDetectorRef.detectChanges();
           throw err;
         }
       });
@@ -120,6 +119,10 @@ export class UploadComponent {
 
   get noFileSelected(): boolean {
     return (this.fileUpload?.nativeElement.files.length || 0) === 0;
+  }
+
+  detectChanges(): void {
+    this.changeDetectorRef.detectChanges();
   }
 }
 

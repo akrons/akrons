@@ -2,7 +2,7 @@
 <div mat-dialog-content class="content">
     <div class="select-file" *ngIf="!isUploading">
         <form method="POST" enctype="multipart/form-data">
-            <input #fileUpload type="file" class="hidden">
+            <input #fileUpload type="file" class="hidden" (change)="detectChanges()">
         </form>
         <button mat-raised-button [disabled]="isUploading" color="secondary" (click)="selectFile()">
             <mat-icon>menu_open</mat-icon>
