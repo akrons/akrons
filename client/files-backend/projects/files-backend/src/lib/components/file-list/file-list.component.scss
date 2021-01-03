@@ -2,7 +2,6 @@ $space-large: 32px;
 $space-medium: 16px;
 $space-small: 8px;
 
-
 .tree-entry {
     cursor: pointer;
     .tree-entry {
@@ -31,4 +30,8 @@ $space-small: 8px;
 mat-card {
     padding: $space-small;
     margin: $space-small;
+}
+
+.preview-picture {
+    height: 150px;
 }

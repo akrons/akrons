@@ -15,7 +15,7 @@
     <div class="tree-entry">
         <mat-card class="tree-entry-row" (click)="node.open = !node.open">
             <h3>
-                <mat-icon [inline]="true" *ngIf="!node.file">
+                <mat-icon [inline]="true" *ngIf="!node.file || isPicture(node.file?.mimeType)">
                     {{node.open ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}
                 </mat-icon>
                 <mat-icon [inline]="true" [title]="node.file ? ('type: ' + node.file.mimeType) : 'Ordner'">
@@ -27,10 +27,13 @@
                 <button mat-mini-fab color="primary" (click)="editFile(node.file)" alt="Bearbeiten" title="Bearbeiten">
                     <mat-icon [inline]="true">edit</mat-icon>
                 </button>
-                <button mat-mini-fab color="warn" (click)="deleteFile(node.file)" alt="Bearbeiten" title="Bearbeiten">
+                <button mat-mini-fab color="warn" (click)="deleteFile(node.file)" alt="Löschen" title="Löschen">
                     <mat-icon [inline]="true">delete</mat-icon>
                 </button>
             </span>
+            <div *ngIf="node.open && isPicture(node.file?.mimeType)">
+                <img [src]="getPictureFilePath(node.file)" [alt]="node.file.name" class="preview-picture">
+            </div>
         </mat-card>
         <div *ngIf="node.children.length && node.open" class="node-children">
             <ng-template ngFor [ngForOf]="node.children" [ngForTemplate]="fileTree">

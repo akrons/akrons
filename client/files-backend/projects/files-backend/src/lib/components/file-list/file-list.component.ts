@@ -1,13 +1,13 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatDialog } from '@angular/material/dialog';
-import { UploadComponent, IUploadDialogData } from '@akrons/core';
+import { UploadComponent, IUploadDialogData, joinPath } from '@akrons/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FileEditComponent } from '../file-edit/file-edit.component';
 import { FileDeleteComponent } from '../file-delete/file-delete.component';
 import { BackendFileService } from '../../services/backend-file.service';
-import { FILES_BACKEND_HOST_INJECTOR } from '../../injectors';
+import { FILES_BACKEND_HOST_INJECTOR, FILES_HOST_INJECTOR } from '../../injectors';
 import { file } from '@akrons/types';
 
 @Component({
@@ -22,8 +22,10 @@ export class FileListComponent implements OnInit {
   usage$: Observable<{ result: number, limit?: number }>;
 
   constructor(
-    @Inject(FILES_BACKEND_HOST_INJECTOR)
+    @Inject(FILES_HOST_INJECTOR)
     private endpoint: string,
+    @Inject(FILES_BACKEND_HOST_INJECTOR)
+    private backendEndpoint: string,
     private fileService: BackendFileService,
     public dialog: MatDialog,
   ) { }
@@ -52,7 +54,7 @@ export class FileListComponent implements OnInit {
       disableClose: false,
       data: <IUploadDialogData>{
         title: 'Datei hochladen',
-        uploadEndpoint: this.endpoint
+        uploadEndpoint: this.backendEndpoint
       }
     });
     dialogRef.afterClosed()
@@ -99,7 +101,7 @@ export class FileListComponent implements OnInit {
   }
 
   private getIconByMimeType(mime: string): string {
-    if (mime.startsWith('image/'))
+    if (this.isPicture(mime))
       return 'image';
     if (mime.startsWith('text/'))
       return 'code';
@@ -122,6 +124,16 @@ export class FileListComponent implements OnInit {
     return 'description';
   }
 
+  getPictureFilePath(file: file.IFile): string {
+    return joinPath(this.endpoint, file.name);
+  }
+
+  private isPicture(mime: string | undefined): boolean {
+    if (!mime) {
+      return false;
+    }
+    return mime.startsWith('image/');
+  }
 }
 
 interface IFileDirectory {

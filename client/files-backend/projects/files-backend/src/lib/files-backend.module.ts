@@ -11,6 +11,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '@akrons/core';
@@ -32,6 +33,7 @@ import { CoreModule } from '@akrons/core';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatCardModule,
     ReactiveFormsModule,
   ],
   exports: [
