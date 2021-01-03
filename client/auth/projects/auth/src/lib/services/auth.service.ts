@@ -107,7 +107,7 @@ export class AuthService {
     interval(checkEvery)
       .pipe(
         filter(() => {
-          const diff = Math.abs(differenceInMilliseconds(this.getTokenExpires(), new Date()));
+          const diff = differenceInMilliseconds(this.getTokenExpires(), new Date());
           return diff < millisecondsBeforeExpires;
         }),
         switchMap(() => {
