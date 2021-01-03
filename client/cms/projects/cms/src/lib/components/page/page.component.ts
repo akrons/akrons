@@ -69,7 +69,7 @@ export class PageComponent implements OnInit, OnDestroy {
   }
 
   setTitle(title: string): void {
-    if (this.changeTitle) {
+    if (this.changeTitle === undefined || this.changeTitle) {
       this.titleService.setTitle(title);
     }
   }
