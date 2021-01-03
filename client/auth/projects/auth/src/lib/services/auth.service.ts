@@ -57,7 +57,7 @@ export class AuthService {
 
   async logout(): Promise<void> {
     this.stopTokenRefresh$.next();
-    await this.endpoint.post('logout');
+    await this.endpoint.post('logout').toPromise();
     this.token = undefined;
   }
 
