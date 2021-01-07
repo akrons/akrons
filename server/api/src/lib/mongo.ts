@@ -22,7 +22,7 @@ export async function mongoConnection<T>(task: (db: Db) => Promise<T>): Promise<
     if (mongoClientDurability) {
         clearTimeout(mongoClientDurability);
     }
-    setTimeout(() => {
+    mongoClientDurability = setTimeout(() => {
         if (globalMongoClient) {
             globalMongoClient.close();
             globalMongoClient = undefined;

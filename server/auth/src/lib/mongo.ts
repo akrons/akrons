@@ -1,8 +1,6 @@
 import { MongoClient, Db } from 'mongodb';
 import { TimeSpan } from './time-span';
 import { Environment } from './env';
-// import { Groups } from '../models/groups';
-// import { Users } from '../models/users';
 
 
 let globalMongoClient: MongoClient | undefined;
@@ -25,7 +23,7 @@ export async function mongoConnection<T>(task: (db: Db) => Promise<T>): Promise<
     if (mongoClientDurability) {
         clearTimeout(mongoClientDurability);
     }
-    setTimeout(() => {
+    mongoClientDurability = setTimeout(() => {
         if (globalMongoClient) {
             globalMongoClient.close();
             globalMongoClient = undefined;
