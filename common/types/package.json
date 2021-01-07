@@ -3,11 +3,6 @@
     "version": "1.0.0",
     "description": "",
     "main": "dist/index.js",
-    "exports": {
-        "cms": "./dist/cms/index.js",
-        "file": "./dist/file/index.js",
-        "auth": "./dist/auth/index.js"
-    },
     "types": "dist/index.d.ts",
     "author": "rudxde",
     "repository": "",
