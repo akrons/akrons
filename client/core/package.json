@@ -13,8 +13,7 @@
     "build": "ng build",
     "build:prod": "ng build --prod",
     "test": "ng test",
-    "lint": "ng lint",
-    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
+    "lint": "ng lint"
   },
   "main": "dist/core/bundles/core.umd.js",
   "module_ivy_ngcc": "__ivy_ngcc__/dist/core/fesm2015/core.js",
