@@ -1,6 +1,11 @@
 {
     "name": "@akrons/types",
     "version": "1.0.0",
+    "files": [
+        "package*.json",
+        "README.md",
+        "dist/**"
+    ],
     "description": "",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -8,7 +13,8 @@
     "repository": "",
     "bugs": "",
     "scripts": {
-        "build": "tsc -p ."
+        "build": "tsc -p .",
+        "build:prod": "npm run build"
     },
     "dependencies": {
         "date-fns": "^2.16.1",

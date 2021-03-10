@@ -1,6 +1,11 @@
 {
   "name": "@akrons/api",
   "version": "1.0.0",
+  "files": [
+    "package*.json",
+    "README.md",
+    "dist/**"
+  ],
   "description": "",
   "main": "index",
   "types": "index",
@@ -8,9 +13,12 @@
     "start": "node dist/index",
     "start:ts": "ts-node src/index",
     "build": "tsc -p .",
+    "build:prod": "npm run build",
     "test": "ts-node -P ./tsconfig.test.json node_modules/jasmine/bin/jasmine --config=jasmine.json",
     "test:coverage": "ts-node -P ./tsconfig.test.json node_modules/nyc/bin/nyc.js npm rum test",
-    "lint": "eslint -c .eslintrc.js --ext .ts ."
+    "lint": "eslint -c .eslintrc.js --ext .ts .",
+    "docker": "node ../../docker-build.js --service api",
+    "docker:latest": "node ../../docker-build.js --service api --latest"
   },
   "author": "rudxde",
   "repository": "",

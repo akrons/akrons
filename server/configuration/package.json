@@ -1,11 +1,17 @@
 {
   "name": "@akrons/configuration",
   "version": "1.0.0",
+  "files": [
+    "package*.json",
+    "README.md",
+    "dist/**"
+  ],
   "description": "",
   "license": "GPL-3.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p .",
+    "build:prod": "npm run build",
     "lint": "eslint -c .eslintrc.js --ext .ts src"
   },
   "dependencies": {
@@ -20,10 +26,6 @@
     "eslint": "7.13.0",
     "typescript": "4.0.3"
   },
-  "files": [
-    "package*.json",
-    "dist/**"
-  ],
   "engines": {
     "node": ">= 12.18.3"
   }

@@ -3,7 +3,14 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "publish": "lerna exec -- npm publish --access public",
+    "publish:since": "lerna exec --since $(git rev-parse HEAD^) -- npm publish --access public",
+    "version": "lerna version --conventional-commits --yes",
     "build": "lerna run build",
+    "build:prod": "lerna run build:prod",
+    "docker": "lerna run docker",
+    "docker:latest": "lerna run docker:latest --since $(git rev-parse HEAD^)",
+    "clean": " lerna clean --yes",
     "start": "lerna run start"
   },
   "devDependencies": {

@@ -1,6 +1,11 @@
 {
   "name": "@akrons/service-utils",
   "version": "1.0.0",
+  "files": [
+    "package*.json",
+    "README.md",
+    "dist/**"
+  ],
   "description": "",
   "main": "dist/index",
   "types": "dist/index",
@@ -9,6 +14,7 @@
     "start": "node dist/index.js",
     "start-ts": "node src/index.ts",
     "build": "tsc -p .",
+    "build:prod": "npm run build",
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'"
   },
   "dependencies": {
