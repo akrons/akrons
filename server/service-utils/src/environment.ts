@@ -1,5 +1,5 @@
 import { ITimeSpan } from './time-span';
-import type * as yargs from '@akrons/configuration/node_modules/@types/yargs/index';
+import type * as yargs from 'yargs';
 import { nestedDemandOption } from '@akrons/configuration';
 
 export namespace Environment {

@@ -21,6 +21,7 @@
   "dependencies": {
     "@akrons/configuration": "^1.0.0",
     "@akrons/types": "^1.0.0",
+    "@types/yargs": "15.0.8",
     "axios": "^0.21.0",
     "date-fns": "^2.9.0",
     "express": "^4.17.1",
