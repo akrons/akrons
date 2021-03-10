@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "publish": "lerna exec -- npm publish --access public",
-    "publish:since": "lerna exec --since $(git rev-parse HEAD^) -- npm publish --access public",
+    "publish": "lerna exec --no-private -- npm publish --access public",
+    "publish:since": "lerna exec --no-private --since $(git rev-parse HEAD^) -- npm publish --access public",
     "version": "lerna version --conventional-commits --yes",
     "build": "lerna run build",
     "build:prod": "lerna run build:prod",
