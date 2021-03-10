@@ -13,7 +13,7 @@ export class ImageElementComponent implements OnInit, IElementComponent<IImageEl
   ngOnInit(): void {
   }
 
-  getStyleString(fixed: string): string {
+  getStyleString(fixed: boolean): string {
     return [
       ...(fixed ? [`background-image: url(${this.data.url})`] : []),
       `height: ${this.getHeight()}`,
