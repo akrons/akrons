@@ -19,12 +19,9 @@ jobs:
           node-version: 14
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm run bootstrap
       - run: npm run version -- --no-git-tag-version --no-push --no-changelog --conventional-prerelease --force-publish --preid build.$(git rev-parse --short HEAD)
       - name: cleanup node_modules
-        run: |
-          npm run clean
-          rm -rf node_modules
+        run: rm -rf node_modules
       - uses: actions/upload-artifact@v1
         with:
           name: update-version
@@ -67,7 +64,6 @@ jobs:
           name: build
           path: ./
       - run: npm ci
-      - run: npm run bootstrap
       - run: npm run publish -- --tag build
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
