@@ -22,7 +22,6 @@
   "fesm2015": "dist/auth-backend/fesm2015/akrons-auth-backend.js",
   "typings": "dist/auth-backend/akrons-auth-backend.d.ts",
   "sideEffects": false,
-  "private": true,
   "dependencies": {
     "@akrons/core": "^1.0.0",
     "@akrons/cms-backend": "^1.0.0",

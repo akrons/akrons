@@ -22,7 +22,7 @@
   "fesm2015": "dist/cms-default-backend/fesm2015/akrons-cms-default-backend.js",
   "typings": "dist/cms-default-backend/akrons-cms-default-backend.d.ts",
   "sideEffects": false,
-  "private": true,
+  "": true,
   "dependencies": {
     "@akrons/cms-backend": "^1.0.0",
     "@akrons/cms-default": "^1.0.0",

@@ -15,7 +15,6 @@
     "test": "ng test",
     "lint": "ng lint"
   },
-  "private": true,
   "dependencies": {
     "@akrons/core": "^1.0.0",
     "@akrons/types": "^1.0.0",

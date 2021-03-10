@@ -22,8 +22,6 @@
     "@akrons/files-backend": "^1.0.0",
     "@akrons/menues": "^1.0.0",
     "@akrons/menues-backend": "^1.0.0",
-    "@akrons/sermons": "^1.0.0",
-    "@akrons/sermons-backend": "^1.0.0",
     "@akrons/types": "^1.0.0",
     "@angular/animations": "~10.1.6",
     "@angular/cdk": "^10.2.5",

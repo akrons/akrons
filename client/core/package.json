@@ -25,7 +25,6 @@
   "fesm2015_ivy_ngcc": "__ivy_ngcc__/dist/core/fesm2015/core.js",
   "fesm2015": "dist/core/fesm2015/core.js",
   "typings": "dist/core/core.d.ts",
-  "private": true,
   "dependencies": {
     "@akrons/types": "^1.0.0",
     "@angular/animations": "~10.1.6",
