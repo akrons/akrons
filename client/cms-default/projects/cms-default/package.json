@@ -1,5 +1,6 @@
 {
   "name": "@akrons/cms-default",
+  "license": "Apache-2.0",
   "version": "0.0.1",
   "peerDependencies": {
     "@akrons/cms": "^1.0.0",

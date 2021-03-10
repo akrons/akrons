@@ -1,5 +1,6 @@
 {
   "name": "@akrons/akrons",
+  "license": "Apache-2.0",
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
