@@ -26,7 +26,7 @@
   "fesm2015": "dist/core/fesm2015/core.js",
   "typings": "dist/core/core.d.ts",
   "dependencies": {
-    "@akrons/types": "^1.0.0",
+    "@akrons/types": "1.0.0",
     "@angular/animations": "~10.1.6",
     "@angular/cdk": "^10.2.5",
     "@angular/common": "~10.1.6",

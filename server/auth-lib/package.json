@@ -19,8 +19,8 @@
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'"
   },
   "dependencies": {
-    "@akrons/types": "^1.0.0",
-    "@akrons/service-utils": "^1.0.0",
+    "@akrons/types": "1.0.0",
+    "@akrons/service-utils": "1.0.0",
     "axios": "^0.21.0",
     "date-fns": "^2.9.0",
     "express": "^4.17.1"

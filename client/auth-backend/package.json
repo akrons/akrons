@@ -24,9 +24,9 @@
   "typings": "dist/auth-backend/akrons-auth-backend.d.ts",
   "sideEffects": false,
   "dependencies": {
-    "@akrons/core": "^1.0.0",
-    "@akrons/cms-backend": "^1.0.0",
-    "@akrons/types": "^1.0.0",
+    "@akrons/core": "1.0.0",
+    "@akrons/cms-backend": "1.0.0",
+    "@akrons/types": "1.0.0",
     "@angular/animations": "~10.1.6",
     "@angular/cdk": "^10.2.5",
     "@angular/common": "~10.1.6",

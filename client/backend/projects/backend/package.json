@@ -3,8 +3,8 @@
   "license": "Apache-2.0",
   "version": "0.0.1",
   "peerDependencies": {
-    "@akrons/core": "^1.0.0",
-    "@akrons/types": "^1.0.0",
+    "@akrons/core": "1.0.0",
+    "@akrons/types": "1.0.0",
     "@angular/cdk": "^10.2.5",
     "@angular/material": "^10.2.5",
     "@angular/common": "^10.1.6",
