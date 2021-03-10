@@ -1,9 +1,9 @@
 import { NotAuthorizedError } from '@akrons/service-utils';
 import { Db, Collection } from 'mongodb';
-import { requirePermissionMiddleware } from '@akrons/auth-lib';
 import { Views } from './views';
 import { DefaultCollection } from './default-collection';
 import { cms } from '@akrons/types';
+import { auth } from '@akrons/types';
 
 export class Pages extends DefaultCollection<cms.IPage>{
     private static instance: Pages | undefined;
@@ -21,9 +21,11 @@ export class Pages extends DefaultCollection<cms.IPage>{
     async createIndex(db: Db): Promise<void> {
         await this.getCollection(db).createIndex({ id: 1 });
     }
+
     async canMoveId(id: string, x: cms.IPage): Promise<boolean> {
         return true;
     }
+
     updateMap(x: cms.IPage): Partial<cms.IPage> {
         return {
             title: x.title,
@@ -43,10 +45,11 @@ export class Pages extends DefaultCollection<cms.IPage>{
 
     async loadPage(id: string, permissions: string[]): Promise<cms.IPage> {
         let result = await this.get(id);
-        // if (result.requiredViewPermissions && !Permissions.getInstance().hasPermission(result.requiredViewPermissions, permissions)) {
-        //     throw new NotAuthorizedError(`Permission ${result.requiredViewPermissions} is required!`);
-        // }
-        // result.requiredViewPermissions = undefined;
+
+        const requiredViewPermission = result.options.find(x => x.key === 'requiredViewPermission');
+        if (requiredViewPermission && !auth.hasPermission(requiredViewPermission.value, permissions)) {
+            throw new NotAuthorizedError(`Permission ${requiredViewPermission} is required!`);
+        }
         await Views.getInstance().count('page', result.id);
         return result;
     }

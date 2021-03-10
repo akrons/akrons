@@ -16,6 +16,7 @@ import { AUTH_BACKEND_ENDPOINT_INJECTOR } from './injectors';
 import { UserResetPasswordComponent } from './components/user-reset-password/user-reset-password.component';
 import { UserPasswordFeedbackComponent } from './components/user-password-feedback/user-password-feedback.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BackendPageOptionsService } from '@akrons/cms-backend';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,23 @@ import { ReactiveFormsModule } from '@angular/forms';
   ]
 })
 export class AuthBackendModule {
+
+  constructor(
+    backendPageOptionsService: BackendPageOptionsService,
+  ) {
+    backendPageOptionsService.setElements([
+      {
+        key: 'requiredViewPermission',
+        description: 'Benötigte Anzeige-Berechtigungen',
+        form: {
+          type: 'input',
+          id: 'requiredViewPermission',
+          placeholder: { type: 'static', value: 'Benötigte Anzeige-Berechtigungen' },
+        },
+      }
+    ]);
+  }
+
   static forRoot(
     options: {
       endpoint: string,
