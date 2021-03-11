@@ -15,7 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '@akrons/core';
-
+import { BackendOptionsListService } from '@akrons/backend';
 
 @NgModule({
   declarations: [
@@ -42,6 +42,22 @@ import { CoreModule } from '@akrons/core';
   ]
 })
 export class FilesBackendModule {
+
+  constructor(
+    backendOptionsListService: BackendOptionsListService,
+  ) {
+    backendOptionsListService.addOption({
+      name: 'Dateien verwalten',
+      path: 'file',
+      icon: 'insert_drive_file',
+      permission: 'api.backend.file',
+      route: {
+        path: 'file',
+        component: FileListComponent
+      }
+    });
+  }
+
   public static forRoot(options: {
     backendEndpoint: string,
     endpoint: string,
