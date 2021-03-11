@@ -6,14 +6,14 @@
         "@akrons/cms": "1.0.0",
         "@akrons/core": "1.0.0",
         "@akrons/types": "1.0.0",
-        "@akrons/forms": "1.0.0",
         "@angular/cdk": "^10.2.5",
         "@angular/material": "^10.2.5",
         "@angular/common": "^10.1.6",
         "@angular/core": "^10.1.6"
     },
     "dependencies": {
-        "tslib": "^2.0.0"
+        "tslib": "^2.0.0",
+        "@akrons/forms": "1.0.0" 
     },
     "scripts": {
         "build": "ng build @akrons/cms-backend",
@@ -29,7 +29,6 @@
     "devDependencies": {
         "@akrons/cms": "1.0.0",
         "@akrons/core": "1.0.0",
-        "@akrons/types": "1.0.0",
-        "@akrons/forms": "1.0.0"
+        "@akrons/types": "1.0.0"
     }
 }
