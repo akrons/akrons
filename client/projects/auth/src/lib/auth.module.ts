@@ -9,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CoreModule } from '@akrons/core';
+import { CoreModule, PermissionProviderService } from '@akrons/core';
 import { AuthService } from './services/auth.service';
 
 @NgModule({
@@ -35,8 +35,10 @@ import { AuthService } from './services/auth.service';
 export class AuthModule {
   constructor(
     authService: AuthService,
+    permissionProviderService: PermissionProviderService
   ) { 
     authService.init();
+    permissionProviderService.addPermissionCheck(permission => authService.hasPermission(permission));
   }
   static forRoot(
     options: {
