@@ -1,5 +1,6 @@
 <div class="input" [formGroup]="XFormGroup" *ngIf="XFormField.visible">
   <mat-form-field>
     <input matInput [placeholder]="XFormField.placeHolder" [formControlName]="XFormField.id">
+    <mat-hint *ngIf="XFormField.hint" [align]="XFormField.hintAlign">{{XFormField.hint}}</mat-hint>
   </mat-form-field>
 </div>

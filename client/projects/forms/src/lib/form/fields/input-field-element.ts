@@ -9,7 +9,9 @@ import { Functionality } from 'custom-exp';
 
 export interface IInputField extends IFormField {
     type: typeof INPUT_TYPE;
-    placeholder: IEntityModel<string>;
+    hint?: IEntityModel<string>;
+    hintAlign?: IEntityModel<string>;
+    placeholder?: IEntityModel<string>;
     default?: IEntityModel<string | number>;
     visible?: IEntityModel<boolean>;
     disabled?: IEntityModel<boolean>;
@@ -19,10 +21,14 @@ export class InputField implements IFormElementDefinition {
 
     public id: string;
     public type = INPUT_TYPE;
+    public hint: string;
+    public hintAlign: string;
     public default: string | number;
     public placeHolder: string;
     public visible: boolean;
     public disabled: boolean;
+    hintEntity: Entity<string>;
+    hintAlignEntity: Entity<string>;
     defaultEntity: Entity<string | number>;
     placeHolderEntity: Entity<string>;
     visibleEntity: Entity<boolean>;
@@ -39,6 +45,8 @@ export class InputField implements IFormElementDefinition {
         this.placeHolderEntity = EntityFactory(model.placeholder, parentForm, this, '');
         this.visibleEntity = EntityFactory(model.visible, parentForm, this, true);
         this.disabledEntity = EntityFactory(model.disabled, parentForm, this, false);
+        this.hintEntity = EntityFactory(model.hint, parentForm, this, '');
+        this.hintAlignEntity = EntityFactory(model.hintAlign, parentForm, this, 'start');
     }
 
 
@@ -85,6 +93,22 @@ export class InputField implements IFormElementDefinition {
             }),
         });
         functionality.addFunctions({
+            name: 'hint',
+            scopeType,
+            eval: (scope: InputField, parameters) => ({
+                type: 'string',
+                value: scope.hint,
+            }),
+        });
+        functionality.addFunctions({
+            name: 'hintAlign',
+            scopeType,
+            eval: (scope: InputField, parameters) => ({
+                type: 'string',
+                value: scope.hintAlign,
+            }),
+        });
+        functionality.addFunctions({
             name: 'toString',
             scopeType,
             eval: (scope: InputField, parameters) => ({
@@ -99,6 +123,8 @@ export class InputField implements IFormElementDefinition {
         this.placeHolder = this.placeHolderEntity.value;
         this.visible = this.visibleEntity.value;
         this.disabled = this.disabledEntity.value;
+        this.hint = this.hintEntity.value;
+        this.hintAlign = this.hintAlignEntity.value; 
     }
 
     getReactiveFormObject(value?: { [key: string]: any }): { [key: string]: any } {

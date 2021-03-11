@@ -14,6 +14,7 @@ export interface ISliderField extends IFormField {
     step?: IEntityModel<number>;
     default?: IEntityModel<number>;
     visible?: IEntityModel<boolean>;
+    label?: IEntityModel<string>;
 }
 
 export class SliderField implements IFormElementDefinition {
@@ -25,11 +26,13 @@ export class SliderField implements IFormElementDefinition {
     public step: number;
     public default: number;
     public visible: boolean;
+    public label: string;
     minEntity: Entity<number>;
     maxEntity: Entity<number>;
     stepEntity: Entity<number>;
     defaultEntity: Entity<number>;
     visibleEntity: Entity<boolean>;
+    labelEntity: Entity<string>;
 
     constructor(
         model: ISliderField,
@@ -43,6 +46,7 @@ export class SliderField implements IFormElementDefinition {
         this.stepEntity = EntityFactory(model.step, parentForm, this, 1);
         this.defaultEntity = EntityFactory(model.default, parentForm, this, 0);
         this.visibleEntity = EntityFactory(model.visible, parentForm, this, true);
+        this.labelEntity = EntityFactory(model.label, parentForm, this, '');
     }
 
     static addFunctionality(functionality: Functionality): void {
@@ -96,6 +100,14 @@ export class SliderField implements IFormElementDefinition {
             }),
         });
         functionality.addFunctions({
+            name: 'label',
+            scopeType,
+            eval: (scope: SliderField, parameters) => ({
+                type: 'string',
+                value: scope.label,
+            }),
+        });
+        functionality.addFunctions({
             name: 'toString',
             scopeType,
             eval: (scope: SliderField, parameters) => ({
@@ -111,6 +123,7 @@ export class SliderField implements IFormElementDefinition {
         this.step = this.stepEntity.value;
         this.default = this.defaultEntity.value;
         this.visible = this.visibleEntity.value;
+        this.label = this.labelEntity.value;
     }
 
     getReactiveFormObject(value?: { [key: string]: any }): { [key: string]: any } {

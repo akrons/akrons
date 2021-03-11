@@ -1,4 +1,5 @@
 <div class="input" *ngIf="XFormField.visible" [formGroup]="XFormGroup">
+    <mat-label *ngIf="XFormField.label">{{XFormField.label}}</mat-label>
     <mat-slider
       [min]="XFormField.min"
       [max]="XFormField.max"
