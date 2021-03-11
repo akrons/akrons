@@ -15,6 +15,7 @@ export const TitleElement: IElementDefinition<ITitleElementData> = {
             {
                 id: 'level',
                 type: 'select',
+                title: { type: 'static', value: 'Überschrifts-Level' },
                 options: { type: 'static', value: <any>[1, 2, 3, 4, 5, 6] },
                 default: { type: 'static', value: <any>data.level },
             }

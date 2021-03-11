@@ -27,6 +27,7 @@ export const ImageElement: IElementDefinition<IImageElementData> = {
             {
                 id: 'width',
                 type: 'slider',
+                label: { type: 'static', value: 'Breite:' },
                 min: { type: 'static', value: 0 },
                 max: { type: 'static', value: 100 },
                 step: { type: 'static', value: 1 },
@@ -35,12 +36,14 @@ export const ImageElement: IElementDefinition<IImageElementData> = {
             {
                 id: 'heightUnit',
                 type: 'select',
+                title: { type: 'static', value: 'Höhe Maßeinheit' },
                 options: { type: 'static', value: ['auto', 'px', '%', 'vh', 'pt'] },
                 default: { type: 'static', value: data.heightUnit },
             },
             {
                 id: 'height',
                 type: 'slider',
+                label: { type: 'static', value: 'Höhe:' },
                 min: { type: 'static', value: 0 },
                 max: { type: 'dynamic', unCompiledFunction: '(($heightUnit.value == ("%")) || ($heightUnit.value == "vh")).ifElse(100, ($heightUnit.value == "px").ifElse(2000, 50))' },
                 step: { type: 'static', value: 1 },
