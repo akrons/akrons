@@ -1,0 +1,487 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "@akrons/auth": {
+      "projectType": "library",
+      "root": "projects/auth",
+      "sourceRoot": "projects/auth/src",
+      "prefix": "akrons-auth",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/auth/tsconfig.lib.json",
+            "project": "projects/auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/auth/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/auth/src/test.ts",
+            "tsConfig": "projects/auth/tsconfig.spec.json",
+            "karmaConfig": "projects/auth/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/auth/tsconfig.lib.json",
+              "projects/auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@akrons/auth-backend": {
+      "projectType": "library",
+      "root": "projects/auth-backend",
+      "sourceRoot": "projects/auth-backend/src",
+      "prefix": "akrons-auth-backend",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/auth-backend/tsconfig.lib.json",
+            "project": "projects/auth-backend/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/auth-backend/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/auth-backend/src/test.ts",
+            "tsConfig": "projects/auth-backend/tsconfig.spec.json",
+            "karmaConfig": "projects/auth-backend/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/auth-backend/tsconfig.lib.json",
+              "projects/auth-backend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@akrons/menues-backend": {
+      "projectType": "library",
+      "root": "projects/menues-backend",
+      "sourceRoot": "projects/menues-backend/src",
+      "prefix": "akrons-menues-backend",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/menues-backend/tsconfig.lib.json",
+            "project": "projects/menues-backend/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/menues-backend/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/menues-backend/src/test.ts",
+            "tsConfig": "projects/menues-backend/tsconfig.spec.json",
+            "karmaConfig": "projects/menues-backend/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/menues-backend/tsconfig.lib.json",
+              "projects/menues-backend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@akrons/menues": {
+      "projectType": "library",
+      "root": "projects/menues",
+      "sourceRoot": "projects/menues/src",
+      "prefix": "akrons-menues",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/menues/tsconfig.lib.json",
+            "project": "projects/menues/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/menues/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/menues/src/test.ts",
+            "tsConfig": "projects/menues/tsconfig.spec.json",
+            "karmaConfig": "projects/menues/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/menues/tsconfig.lib.json",
+              "projects/menues/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@akrons/forms": {
+      "projectType": "library",
+      "root": "projects/forms",
+      "sourceRoot": "projects/forms/src",
+      "prefix": "akrons-forms",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/forms/tsconfig.lib.json",
+            "project": "projects/forms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/forms/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/forms/src/test.ts",
+            "tsConfig": "projects/forms/tsconfig.spec.json",
+            "karmaConfig": "projects/forms/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/forms/tsconfig.lib.json",
+              "projects/forms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@akrons/files-backend": {
+      "projectType": "library",
+      "root": "projects/files-backend",
+      "sourceRoot": "projects/files-backend/src",
+      "prefix": "akrons-files-backend",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/files-backend/tsconfig.lib.json",
+            "project": "projects/files-backend/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/files-backend/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/files-backend/src/test.ts",
+            "tsConfig": "projects/files-backend/tsconfig.spec.json",
+            "karmaConfig": "projects/files-backend/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/files-backend/tsconfig.lib.json",
+              "projects/files-backend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@akrons/core": {
+      "projectType": "library",
+      "root": "projects/core",
+      "sourceRoot": "projects/core/src",
+      "prefix": "akrons-core",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/core/tsconfig.lib.json",
+            "project": "projects/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/core/src/test.ts",
+            "tsConfig": "projects/core/tsconfig.spec.json",
+            "karmaConfig": "projects/core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/core/tsconfig.lib.json",
+              "projects/core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@akrons/cms-default-backend": {
+      "projectType": "library",
+      "root": "projects/cms-default-backend",
+      "sourceRoot": "projects/cms-default-backend/src",
+      "prefix": "akrons-cms-default-backend",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/cms-default-backend/tsconfig.lib.json",
+            "project": "projects/cms-default-backend/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cms-default-backend/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cms-default-backend/src/test.ts",
+            "tsConfig": "projects/cms-default-backend/tsconfig.spec.json",
+            "karmaConfig": "projects/cms-default-backend/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cms-default-backend/tsconfig.lib.json",
+              "projects/cms-default-backend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@akrons/cms-default": {
+      "projectType": "library",
+      "root": "projects/cms-default",
+      "sourceRoot": "projects/cms-default/src",
+      "prefix": "akrons-cms-default",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/cms-default/tsconfig.lib.json",
+            "project": "projects/cms-default/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cms-default/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cms-default/src/test.ts",
+            "tsConfig": "projects/cms-default/tsconfig.spec.json",
+            "karmaConfig": "projects/cms-default/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cms-default/tsconfig.lib.json",
+              "projects/cms-default/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@akrons/cms-backend": {
+      "projectType": "library",
+      "root": "projects/cms-backend",
+      "sourceRoot": "projects/cms-backend/src",
+      "prefix": "akrons-cms-backend",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/cms-backend/tsconfig.lib.json",
+            "project": "projects/cms-backend/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cms-backend/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cms-backend/src/test.ts",
+            "tsConfig": "projects/cms-backend/tsconfig.spec.json",
+            "karmaConfig": "projects/cms-backend/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cms-backend/tsconfig.lib.json",
+              "projects/cms-backend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@akrons/cms": {
+      "projectType": "library",
+      "root": "projects/cms",
+      "sourceRoot": "projects/cms/src",
+      "prefix": "akrons-cms",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/cms/tsconfig.lib.json",
+            "project": "projects/cms/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cms/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cms/src/test.ts",
+            "tsConfig": "projects/cms/tsconfig.spec.json",
+            "karmaConfig": "projects/cms/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cms/tsconfig.lib.json",
+              "projects/cms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@akrons/backend": {
+      "projectType": "library",
+      "root": "projects/backend",
+      "sourceRoot": "projects/backend/src",
+      "prefix": "akrons-backend",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/backend/tsconfig.lib.json",
+            "project": "projects/backend/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/backend/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/backend/src/test.ts",
+            "tsConfig": "projects/backend/tsconfig.spec.json",
+            "karmaConfig": "projects/backend/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/backend/tsconfig.lib.json",
+              "projects/backend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

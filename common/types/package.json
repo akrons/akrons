@@ -15,7 +15,8 @@
     "bugs": "",
     "scripts": {
         "build": "tsc -p .",
-        "build:prod": "npm run build"
+        "build:prod": "npm run build",
+        "publish:npm": "npm publish"
     },
     "dependencies": {
         "date-fns": "^2.16.1",

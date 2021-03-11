@@ -12,6 +12,7 @@
   "scripts": {
     "build": "tsc -p .",
     "build:prod": "npm run build",
+    "publish:npm": "npm publish",
     "lint": "eslint -c .eslintrc.js --ext .ts src"
   },
   "dependencies": {

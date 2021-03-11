@@ -1,0 +1,24 @@
+{
+    "name": "@akrons/core",
+    "license": "Apache-2.0",
+    "version": "1.0.0",
+    "peerDependencies": {
+        "@angular/common": "^10.1.6",
+        "@angular/core": "^10.1.6"
+    },
+    "dependencies": {
+        "tslib": "^2.0.0"
+    },
+    "scripts": {
+        "build": "ng build @akrons/core",
+        "build:prod": "ng build --prod @akrons/core",
+        "publish:npm": "cd dist & npm publish"
+    },
+    "main": "./dist/bundles/akrons-core.umd.js",
+    "module": "./dist/fesm2015/akrons-core.js",
+    "es2015": "./dist/fesm2015/akrons-core.js",
+    "esm2015": "./dist/esm2015/akrons-core.js",
+    "fesm2015": "./dist/fesm2015/akrons-core.js",
+    "typings": "./dist/akrons-core.d.ts",
+    "devDependencies": {}
+}

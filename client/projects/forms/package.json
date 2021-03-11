@@ -1,0 +1,33 @@
+{
+    "name": "@akrons/forms",
+    "license": "Apache-2.0",
+    "version": "1.0.0",
+    "peerDependencies": {
+        "@akrons/core": "1.0.0",
+        "@akrons/types": "1.0.0",
+        "@angular/cdk": "^10.2.5",
+        "@angular/material": "^10.2.5",
+        "@angular/common": "^10.1.6",
+        "@angular/core": "^10.1.6",
+        "@angular/forms": "^10.1.6"
+    },
+    "dependencies": {
+        "tslib": "^2.0.0",
+        "custom-exp": "^1.1.6"
+    },
+    "scripts": {
+        "build": "ng build @akrons/forms",
+        "build:prod": "ng build --prod @akrons/forms",
+        "publish:npm": "cd dist & npm publish"
+    },
+    "main": "./dist/bundles/akrons-forms.umd.js",
+    "module": "./dist/fesm2015/akrons-forms.js",
+    "es2015": "./dist/fesm2015/akrons-forms.js",
+    "esm2015": "./dist/esm2015/akrons-forms.js",
+    "fesm2015": "./dist/fesm2015/akrons-forms.js",
+    "typings": "./dist/akrons-forms.d.ts",
+    "devDependencies": {
+        "@akrons/core": "1.0.0",
+        "@akrons/types": "1.0.0"
+    }
+}

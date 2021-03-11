@@ -1,0 +1,31 @@
+{
+    "name": "@akrons/cms",
+    "license": "Apache-2.0",
+    "version": "1.0.0",
+    "peerDependencies": {
+        "@akrons/core": "1.0.0",
+        "@akrons/types": "1.0.0",
+        "@angular/cdk": "^10.2.5",
+        "@angular/material": "^10.2.5",
+        "@angular/common": "^10.1.6",
+        "@angular/core": "^10.1.6"
+    },
+    "dependencies": {
+        "tslib": "^2.0.0"
+    },
+    "scripts": {
+        "build": "ng build @akrons/cms",
+        "build:prod": "ng build --prod @akrons/cms",
+        "publish:npm": "cd dist & npm publish"
+    },
+    "main": "./dist/bundles/akrons-cms.umd.js",
+    "module": "./dist/fesm2015/akrons-cms.js",
+    "es2015": "./dist/fesm2015/akrons-cms.js",
+    "esm2015": "./dist/esm2015/akrons-cms.js",
+    "fesm2015": "./dist/fesm2015/akrons-cms.js",
+    "typings": "./dist/akrons-cms.d.ts",
+    "devDependencies": {
+        "@akrons/core": "1.0.0",
+        "@akrons/types": "1.0.0"
+    }
+}

@@ -16,6 +16,7 @@
     "start-ts": "node src/index.ts",
     "build": "tsc -p .",
     "build:prod": "npm run build",
+    "publish:npm": "npm publish",
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'"
   },
   "dependencies": {

@@ -63,7 +63,7 @@ jobs:
           name: build
           path: ./
       - run: npm ci
-      - run: npm run publish -- --tag build
+      - run: npm run publish:npm -- --tag build
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
