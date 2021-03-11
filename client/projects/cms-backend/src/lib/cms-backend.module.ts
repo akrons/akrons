@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PageListComponent } from './components/page-list/page-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { CmsModule } from '@akrons/cms';
+import { BackendOptionsListService } from '@akrons/backend';
 import { PageBackendService } from './services/page-backend.service';
 
 @NgModule({
@@ -42,6 +43,19 @@ import { PageBackendService } from './services/page-backend.service';
   ]
 })
 export class CmsBackendModule {
+
+  constructor(
+    backendOptionsListService: BackendOptionsListService,
+  ) {
+    backendOptionsListService.addOption({
+      name: 'Seiten Bearbeiten',
+      permission: 'api.backend.page',
+      icon: 'description',
+      path: '',
+      route: { path: 'page', component: PageListComponent }
+    });
+  }
+
   static forRoot(options: {
     endpoint: string,
   }): ModuleWithProviders<CmsBackendModule> {
