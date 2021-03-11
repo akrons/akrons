@@ -18,6 +18,7 @@ import { UserPasswordFeedbackComponent } from './components/user-password-feedba
 import { ReactiveFormsModule } from '@angular/forms';
 import { BackendPageOptionsService } from '@akrons/cms-backend';
 import { BackendOptionsListService, BackendHeaderOptionsService } from '@akrons/backend';
+import { LoginStateComponent } from './components/login-state/login-state.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BackendOptionsListService, BackendHeaderOptionsService } from '@akrons/
     GroupEditComponent,
     GroupListComponent,
     UserResetPasswordComponent,
-    UserPasswordFeedbackComponent
+    UserPasswordFeedbackComponent,
+    LoginStateComponent
   ],
   imports: [
     CommonModule,
@@ -77,6 +79,7 @@ export class AuthBackendModule {
       path: 'groups',
       route: { path: 'groups', component: GroupListComponent }
     });
+    backendHeaderOptionsService.add(LoginStateComponent);
   }
 
   static forRoot(
