@@ -1,6 +1,7 @@
 import { Injectable, Type } from '@angular/core';
 import { PermissionProviderService } from '@akrons/core';
 import { Route, Router } from '@angular/router';
+import { BackendWelcomeComponent } from '../components/backend-welcome/backend-welcome.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,15 @@ export class BackendOptionsListService {
 
   constructor(
     private permissionProviderService: PermissionProviderService,
-    private router: Router,
-  ) { }
+  ) { 
+    this.addOption({
+      name: 'Home',
+      path: '',
+      permission: '',
+      route: { path: '', component: BackendWelcomeComponent },
+      icon: 'Home'
+    })
+  }
 
   /**
    * Adds an menu-option for the backend menu of the backend menu component.
@@ -22,8 +30,6 @@ export class BackendOptionsListService {
    */
   addOption(option: IBackenOptionsListOption): void {
     this.options.push(option);
-    this.router.config.push(option.route);
-    console.debug(`added route to router config:`, this.router.config);
   }
 
   getOptions(): IBackenOptionsListOption[] {

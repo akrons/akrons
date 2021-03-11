@@ -6,17 +6,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { BackendComponent } from './components/backend/backend.component';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { CoreModule } from 'projects/core/dist/public-api';
+import { BackendWelcomeComponent } from './components/backend-welcome/backend-welcome.component';
 
 @NgModule({
   declarations: [
     BackendComponent,
+    BackendWelcomeComponent,
   ],
   imports: [
+    CommonModule,
+    CoreModule,
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    RouterModule.forChild([])
   ],
   exports: []
 })
@@ -30,7 +35,7 @@ export class BackendModule {
       ngModule: BackendModule,
       providers: [
         { provide: BACKEND_TITLE_INJECTOR, useValue: options.backendTitle },
-      ]
+      ],
     };
   }
 }
