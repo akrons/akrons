@@ -6,7 +6,7 @@
     "bootstrap": "lerna bootstrap",
     "publish:npm": "lerna run publish:npm --no-private -- -- --access public",
     "publish:since": "lerna run publish:npm --no-private --since $(git rev-parse HEAD^) -- -- --access public",
-    "version": "lerna version --conventional-commits --yes",
+    "version": "lerna version --exact --conventional-commits --yes",
     "build": "lerna run build",
     "build:prod": "lerna run build:prod",
     "docker": "lerna run docker",
