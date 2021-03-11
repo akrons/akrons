@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TitleService } from './services/title-service/title.service';
-import { CORE_PRODUCTION_INJECTOR, CORE_TITLE_INJECTOR } from './injectors';
+import { CORE_MOBILE_BREAKPOINT_PX_INJECTOR, CORE_PRODUCTION_INJECTOR, CORE_TITLE_INJECTOR } from './injectors';
 import { HttpService } from './services/http/http.service';
 import { UploadComponent } from './dialogs/upload/upload.component';
 import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
@@ -43,6 +43,7 @@ export class CoreModule {
   public static forRoot(options: {
     titlePrefix?: string,
     production: boolean,
+    mobileBreakpointPx?: number,
   }): ModuleWithProviders<CoreModule> {
     return {
       ngModule: CoreModule,
@@ -50,7 +51,8 @@ export class CoreModule {
         TitleService,
         HttpService,
         { provide: CORE_TITLE_INJECTOR, useValue: options.titlePrefix },
-        { provide: CORE_PRODUCTION_INJECTOR, useValue: options.production }
+        { provide: CORE_PRODUCTION_INJECTOR, useValue: options.production },
+        { provide: CORE_MOBILE_BREAKPOINT_PX_INJECTOR, useValue: options.mobileBreakpointPx || 700 },
       ]
     };
   }
