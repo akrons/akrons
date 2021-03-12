@@ -33,7 +33,7 @@ export class BackendOptionsListService {
   }
 
   getOptions(): IBackenOptionsListOption[] {
-    return this.options.filter(option => this.permissionProviderService.hasPermission(option.permission));
+    return this.options.filter(option => !Boolean(option.permission) || this.permissionProviderService.hasPermission(option.permission));
   }
 }
 
