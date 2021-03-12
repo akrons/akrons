@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BackendComponent } from './components/backend/backend.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { CoreModule } from 'projects/core/dist/public-api';
+import { CoreModule } from '@akrons/core';
 import { BackendWelcomeComponent } from './components/backend-welcome/backend-welcome.component';
 
 @NgModule({
