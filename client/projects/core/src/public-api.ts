@@ -14,4 +14,5 @@ export * from './lib/pipes/add-date';
 export * from './lib/pipes/bytex';
 export * from './lib/pipes/datex';
 export * from './lib/components/entry-component/entry-component.component';
+export * from './lib/services/permission-provider/permission-provider.service';
 export { DialogStaticService } from './lib/dialog-static-service';

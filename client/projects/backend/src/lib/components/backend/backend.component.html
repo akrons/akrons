@@ -1,0 +1,29 @@
+<div class="backend">
+    <mat-toolbar class="header">
+        <mat-toolbar-row>
+            <span class="example-fill-remaining-space">{{backendTitleInjector}}</span>
+        </mat-toolbar-row>
+        <mat-toolbar-row class="secondRow">
+            <span>
+                <button mat-icon-button (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </span>
+            <span class="example-fill-remaining-space"></span>
+            <ng-template #headerOptionsPlaceholder></ng-template>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-drawer-container autosize class="drawer-container">
+        <mat-drawer #drawer class="sidenav" [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile">
+            <div *ngFor="let route of routes">
+                <a mat-button [routerLink]="'/backend/' + route.path">
+                    <mat-icon>{{route.icon}}</mat-icon>
+                    {{route.name}}
+                </a>
+            </div>
+        </mat-drawer>
+        <div class="backend-content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-container>
+</div>

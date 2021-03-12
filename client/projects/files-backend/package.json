@@ -3,6 +3,7 @@
     "license": "Apache-2.0",
     "version": "1.0.0",
     "peerDependencies": {
+        "@akrons/backend": "1.0.0",
         "@akrons/core": "1.0.0",
         "@akrons/types": "1.0.0",
         "@angular/cdk": "^10.2.5",
@@ -25,6 +26,7 @@
     "fesm2015": "./dist/fesm2015/akrons-files-backend.js",
     "typings": "./dist/akrons-files-backend.d.ts",
     "devDependencies": {
+        "@akrons/backend": "1.0.0",
         "@akrons/core": "1.0.0",
         "@akrons/types": "1.0.0"
     }

@@ -17,6 +17,8 @@ import { UserResetPasswordComponent } from './components/user-reset-password/use
 import { UserPasswordFeedbackComponent } from './components/user-password-feedback/user-password-feedback.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BackendPageOptionsService } from '@akrons/cms-backend';
+import { BackendOptionsListService, BackendHeaderOptionsService } from '@akrons/backend';
+import { LoginStateComponent } from './components/login-state/login-state.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { BackendPageOptionsService } from '@akrons/cms-backend';
     GroupEditComponent,
     GroupListComponent,
     UserResetPasswordComponent,
-    UserPasswordFeedbackComponent
+    UserPasswordFeedbackComponent,
+    LoginStateComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +51,8 @@ export class AuthBackendModule {
 
   constructor(
     backendPageOptionsService: BackendPageOptionsService,
+    backendOptionsListService: BackendOptionsListService,
+    backendHeaderOptionsService: BackendHeaderOptionsService
   ) {
     backendPageOptionsService.setElements([
       {
@@ -60,6 +65,21 @@ export class AuthBackendModule {
         },
       }
     ]);
+    backendOptionsListService.addOption({
+      name: 'Benutzer Verwalten',
+      permission: 'api.auth.users',
+      icon: 'person',
+      path: 'users',
+      route: { path: 'users', component: UserListComponent }
+    });
+    backendOptionsListService.addOption({
+      name: 'Gruppen Verwalten',
+      permission: 'api.auth.groups',
+      icon: 'groups',
+      path: 'groups',
+      route: { path: 'groups', component: GroupListComponent }
+    });
+    backendHeaderOptionsService.add(LoginStateComponent);
   }
 
   static forRoot(
