@@ -5,7 +5,7 @@ import { Injectable, Type } from '@angular/core';
 })
 export class BackendHeaderOptionsService {
 
-  private components: Type<any>[];
+  private components: Type<any>[] = [];
   
   constructor() { }
   
