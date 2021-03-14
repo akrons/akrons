@@ -7,7 +7,7 @@ import { TimeSpan } from '../lib/time-span';
 import { addMilliseconds } from 'date-fns';
 import { sign } from '../lib/crypto';
 import { Keys } from '../lib/keys';
-import { auth } from '@akrons/types';
+import * as auth from '@akrons/common-auth';
 
 export class Token {
 

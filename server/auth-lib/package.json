@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@akrons/types": "1.0.0",
+    "@akrons/common-auth": "1.0.0",
     "@akrons/service-utils": "1.0.0",
     "axios": "^0.21.0",
     "date-fns": "^2.9.0",
