@@ -1,5 +1,5 @@
 import { ConfirmDialogComponent, IConfirmDialogData } from '@akrons/core';
-import { IInsertUser, IUser } from '@akrons/types/dist/auth';
+import { IInsertUser, IUser } from '@akrons/common-auth';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';

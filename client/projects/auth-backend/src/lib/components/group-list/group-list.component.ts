@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
-import { IGroup, IInsertGroup } from '@akrons/types/dist/auth';
+import { IGroup, IInsertGroup } from '@akrons/common-auth';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { GroupsService } from '../../services/groups.service';
 import { MatSort } from '@angular/material/sort';

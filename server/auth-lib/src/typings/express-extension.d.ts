@@ -1,7 +1,7 @@
 declare namespace Express {
     export interface Request {
-        sessionToken?: import('@akrons/types').auth.SessionToken;
-        expiredSessionToken?: import('@akrons/types').auth.SessionToken;
+        sessionToken?: import('@akrons/common-auth').SessionToken;
+        expiredSessionToken?: import('@akrons/common-auth').SessionToken;
         permissions: string[];
     }
 }

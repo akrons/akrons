@@ -1,6 +1,6 @@
 import { Db, Collection } from 'mongodb';
 import { DefaultCollection } from './default-collection';
-import { IGroup, IInsertGroup } from '@akrons/types/dist/auth';
+import { IGroup, IInsertGroup } from '@akrons/common-auth';
 
 export class Groups extends DefaultCollection<IInsertGroup, IGroup, IGroup> {
     allowRandomId = true;

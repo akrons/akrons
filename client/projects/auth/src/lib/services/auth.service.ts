@@ -4,7 +4,7 @@ import { AUTH_ENDPOINT_PROVIDER } from '../injectors';
 import { differenceInMilliseconds, isPast } from 'date-fns';
 import { interval, Subject } from 'rxjs';
 import { filter, switchMap, takeUntil } from 'rxjs/operators';
-import { auth } from '@akrons/types';
+import * as auth from '@akrons/common-auth';
 
 const TOKEN_SESSION_STORAGE_KEY = 'AKRONS_SESSION_TOKEN';
 

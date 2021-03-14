@@ -1,4 +1,4 @@
-import { IGroup } from '@akrons/types/dist/auth';
+import { IGroup } from '@akrons/common-auth';
 import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';

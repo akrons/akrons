@@ -1,4 +1,4 @@
-import { IUser } from '@akrons/types/dist/auth';
+import { IUser } from '@akrons/common-auth';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';

@@ -2,7 +2,7 @@ import { NotAuthorizedError } from '@akrons/service-utils';
 import { RequestHandler } from 'express';
 import { verifySign } from '../crypto';
 import { isPast } from 'date-fns';
-import { auth } from '@akrons/types';
+import * as auth from '@akrons/common-auth';
 
 export function GetTokenMiddleware(publicKey: string): RequestHandler {
     return async (req, res, next): Promise<void> => {

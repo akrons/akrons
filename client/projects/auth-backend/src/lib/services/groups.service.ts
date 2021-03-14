@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpService, IHttpService, joinPath } from '@akrons/core';
 import { AUTH_BACKEND_ENDPOINT_INJECTOR } from '../injectors';
 import { Observable, Subject } from 'rxjs';
-import { IGroup, IInsertGroup } from '@akrons/types/dist/auth'
+import { IGroup, IInsertGroup } from '@akrons/common-auth'
 @Injectable({
   providedIn: 'root'
 })

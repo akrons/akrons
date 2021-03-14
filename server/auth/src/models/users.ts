@@ -4,7 +4,7 @@ import { generateSalt, hashPassword, generateRandomHexString } from '../lib/cryp
 import { BadRequestError, NotAuthorizedError, NotFoundError } from '@akrons/service-utils';
 import { mongoConnection } from '../lib/mongo';
 import { Environment } from '../lib/env';
-import { IInsertUser, IUser } from '@akrons/types/dist/auth';
+import { IInsertUser, IUser } from '@akrons/common-auth';
 
 export class Users extends DefaultCollection<IInsertUser, IUser, IUser> {
 

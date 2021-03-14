@@ -3,7 +3,7 @@ import { Users } from './users';
 import { isPast } from 'date-fns';
 import { Groups } from './groups';
 import { Token } from './token';
-import { auth } from '@akrons/types';
+import * as auth from '@akrons/common-auth';
 
 export class Session {
 

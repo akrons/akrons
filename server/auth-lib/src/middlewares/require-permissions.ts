@@ -1,6 +1,6 @@
 import { NotAuthorizedError } from '@akrons/service-utils';
 import { RequestHandler } from 'express';
-import { hasPermission } from '@akrons/types/dist/auth';
+import { hasPermission } from '@akrons/common-auth';
 
 export function requirePermissionMiddleware(permission: string): RequestHandler {
     return (req, res, next): void => {

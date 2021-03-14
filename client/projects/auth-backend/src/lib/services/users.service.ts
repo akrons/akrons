@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpService, IHttpService, joinPath } from '@akrons/core';
 import { AUTH_BACKEND_ENDPOINT_INJECTOR } from '../injectors';
-import { IUser, IInsertUser, IUpdateUser } from '@akrons/types/dist/auth';
+import { IUser, IInsertUser, IUpdateUser } from '@akrons/common-auth';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({

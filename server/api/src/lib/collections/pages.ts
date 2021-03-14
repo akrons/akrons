@@ -3,7 +3,7 @@ import { Db, Collection } from 'mongodb';
 import { Views } from './views';
 import { DefaultCollection } from './default-collection';
 import { cms } from '@akrons/types';
-import { auth } from '@akrons/types';
+import * as auth from '@akrons/common-auth';
 
 export class Pages extends DefaultCollection<cms.IPage>{
     private static instance: Pages | undefined;
