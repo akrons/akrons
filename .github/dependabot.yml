@@ -1,0 +1,164 @@
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/auth/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/auth-backend/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/backend/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/cms/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/cms-backend/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/cms-default/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/cms-default-backend/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/core/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/files-backend/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/forms/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/menues/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/client/projects/menues-backend/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/common/types/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/server/api/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/server/auth/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/server/auth-lib/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/server/configuration/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
+
+  - package-ecosystem: "npm"
+    directory: "/server/service-utils/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    labels:
+      - dependency
