@@ -12,8 +12,8 @@
         "@angular/core": "11.x"
     },
     "dependencies": {
-        "tslib": "^2.0.0",
-        "ngx-markdown": "^10.1.1"
+        "ngx-markdown": "^11.1.2",
+        "tslib": "^2.1.0"
     },
     "scripts": {
         "build": "ng build @akrons/cms-default",

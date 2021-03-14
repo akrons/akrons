@@ -12,8 +12,8 @@
         "@angular/core": "11.x"
     },
     "dependencies": {
-        "tslib": "^2.0.0",
-        "@akrons/forms": "1.0.0"
+        "@akrons/forms": "1.0.0",
+        "tslib": "^2.1.0"
     },
     "scripts": {
         "build": "ng build @akrons/cms-backend",

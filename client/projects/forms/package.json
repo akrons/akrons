@@ -12,8 +12,8 @@
         "@angular/forms": "11.x"
     },
     "dependencies": {
-        "tslib": "^2.0.0",
-        "custom-exp": "^1.1.6"
+        "custom-exp": "^1.1.7",
+        "tslib": "^2.1.0"
     },
     "scripts": {
         "build": "ng build @akrons/forms",
