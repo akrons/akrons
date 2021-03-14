@@ -5,12 +5,12 @@
   "dependencies": {
     "@akrons/types": "1.1.0-build.a7e6ff6.0",
     "@angular/animations": "~11.2.3",
-    "@angular/cdk": "~11.2.3",
+    "@angular/cdk": "~11.2.4",
     "@angular/common": "~11.2.3",
     "@angular/compiler": "~11.2.3",
     "@angular/core": "~11.2.3",
     "@angular/forms": "~11.2.3",
-    "@angular/material": "~11.2.3",
+    "@angular/material": "~11.2.4",
     "@angular/platform-browser": "~11.2.3",
     "@angular/platform-browser-dynamic": "~11.2.3",
     "@angular/router": "~11.2.3",
@@ -21,8 +21,8 @@
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.3",
-    "@angular/cli": "~11.2.2",
+    "@angular-devkit/build-angular": "~0.1102.4",
+    "@angular/cli": "~11.2.4",
     "@angular/compiler-cli": "~11.2.3",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
