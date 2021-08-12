@@ -17,7 +17,7 @@
     "custom-exp": "^1.1.7",
     "ngx-markdown": "^11.1.2",
     "rxjs": "^6.6.4",
-    "tslib": "^2.1.0",
+    "tslib": "^2.3.1",
     "zone.js": "^0.11.4"
   },
   "devDependencies": {
